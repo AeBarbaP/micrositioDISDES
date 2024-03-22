@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>Sistema Único de Identificación y Verificación- INCLUSIÓN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="instascan.min.js"></script>
+    <script src="script.js"></script>
+    <!-- <script src="print.js" type="text/javascript"></script> -->
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <audio id="myAudio">
+      <source src="beep.mp3" type="audio/mpeg">
+    </audio>
+
+    <style>
+      body {
+          font-family: 'Quicksand', sans-serif;
+        }
+
+      .card:hover {
+          background: #ffffff;
+          transform: scale(1.10);
+          z-index: 20;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+  </head>
+  <body class="text-center" style="background-image: url(img/4850037.jpg); background-repeat: no-repeat;background-attachment: fixed; background-size:cover;">
+    <main class="form-signin w-100 m-auto">
+      
+      <form action="prcd/acceso.php" method="post">
+        <!-- <img class="mb-4" src="img/Logo_Gobierno_Inclusion_VColorPNG2.png" alt="" width="90%" height="auto">
+        <h1><strong>SUIDEV</strong></h1>
+        <p>Sistema Único de Identificación y Verificación</p> -->
+        <br>
+        <div class="row">
+          <p class="mb-5"></p>
+          <br class="mb-5">
+          <p class="mt-5 mb-5"></p>
+          <br class="mt-5 mb-5">
+          <h5 class="mb-5"><strong>Verificador de Credenciales</strong></h5>
+          <br>
+              <div class="col-sm-12 mt-5">
+                <a data-bs-toggle="modal" data-bs-target="#validate" class="text-dark" style="text-decoration: none;">
+                    <div class="card mb-3" style="max-width: 100%;">
+                        <div class="row g-0">
+                            <div class="col-sm-12">
+                                <img src="img/QRValidar.png" style="width: 275px; height: 100%; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                  <div class="col-sm-12">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4"><strong>Escanea aquí...</strong></h5>
+                    </div>
+                  </div>
+              </div>
+              <!-- <div class="col-sm-12">
+                <a href="login.html" class="text-dark" style="text-decoration: none;">
+                    <div class="card mb-3" style="max-width: 100%;">
+                        <div class="row g-0">
+                            <div class="col-sm-12">
+                                <img src="img/Login.png" style="width: 275px; height: 100%; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                    <div class="col-sm-12">
+                      <div class="card-body">
+                          <h5 class="card-title"><strong>Iniciar Sesión</strong></h5>
+                      </div>
+                    </div>
+                </div> -->
+      </div>
+      <!-- termina card container -->
+        
+        <p class="mt-5 mb-3 text-muted">&copy; 2024 | INCLUSIÓN</p>
+      </form>
+
+      <!-- Modal validar-->
+      <div class="modal fade" id="validate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Validar Credencial</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="#" id="form2"><!--form-->
+                <div class="row">
+                  <p><input type="text" name="text" id="textQR" readonly="" class="form-control"></p>
+                  <div class="col-8 text-start mt-1">
+                    <button class="btn btn-primary" type="button" onclick="abrirCamara()"><i class="bi bi-qr-code-scan"></i> Escanear</button>
+                    <button class="btn btn-danger"  id="botonCerrar"><i class="bi bi-qr-code"></i> Cerrar Cámara</button>
+                  </div>
+                  <div class="col-4 mt-1 text-end">
+                    <span id="pruebaInner" ></span>
+                    <p>
+                      <select name="cameraCanje" class="form-select w-100">
+                        <option value="1"><i class="bi bi-camera-video-fill"></i> Frontal Cam</option>
+                        <option value="2"><i class="bi bi-camera-video"></i> Back Cam</option>
+                      </select>
+                    </p>
+                  </div>              
+                </div>
+
+              </form><!--form-->
+
+                <!-- <p id="queryDatos2"></p> -->
+          
+                <!-- Una vez cargado el QR se muestra el estatus -->
+                <hr>
+                <video id="preview" class="w-100" hidden></video>
+                <img src="img/etiqueta.jpg" width="81%" alt="" style="padding-top: 60px;padding-bottom: 60px;padding-left: 5px;padding-right: 5px;" id="imagenLogo">
+            </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
+                </div>
+              
+          </div>
+        </div>
+      </div> <!-- Termina Modal validar -->
+
+    </main>
+  </body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- código camara -->
+<!-- <script type="text/javascript">
+              
+  function abrirCamaraCanje(){
+
+  let scanner = new Instascan.Scanner({video:document.getElementById('preview') });
+  scanner.addListener('scan', function (content) {
+    console.log(content);
+  });
+  Instascan.Camera.getCameras().then(function(cameras) {
+    if (cameras.length > 0) {
+      scanner.start(cameras[0]);
+// code front-back camera https://www.youtube.com/watch?v=7gyDSun7pCw&ab_channel=LearnCodeWeb
+      $('[name="cameraCanje"]').on('change',function(){
+        if($(this).val()==1){
+          if(cameras[0]!=""){
+            scanner.start(cameras[0]);
+          }
+          else{
+            alert('No hay camaras');
+          }
+          }
+          else if($(this).val()==2){
+          if(cameras[1]!=""){
+            scanner.start(cameras[1]);
+          }
+          else{
+            alert('No hay camaras');
+          }
+        }
+        
+
+      });
+      
+// code front-back camera
+
+    } else {
+      // console.error('No cameras found.');
+      alert("No se encontró cámara");
+    }
+  }).catch(function (e){
+    console.error(e);
+  }); 
+
+  scanner.addListener('scan',function(c){
+    document.getElementById('textQRCanje').value=c;
+    document.getElementById("myAudio").play();
+    scanner.stop();
+    });
+
+    $('#canjear').on('hide.bs.modal', function () { 
+      scanner.stop();
+    });
+
+}
+
+</script>
+ -->
+<!-- Una vez cargado el QR se muestra el estatus -->
+<!-- código camara -->
