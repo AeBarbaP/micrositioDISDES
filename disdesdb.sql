@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-03-2024 a las 19:15:09
+-- Tiempo de generación: 27-03-2024 a las 05:24:51
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -32,7 +32,6 @@ CREATE TABLE `negocios` (
   `nombre_rs` varchar(250) NOT NULL COMMENT 'Nombre completo de la persona Física o Razon Social de persona Moral',
   `rfc` varchar(14) NOT NULL,
   `representante` varchar(150) NOT NULL COMMENT 'Nombre del representante legal',
-  `contacto` varchar(100) NOT NULL COMMENT 'Nombre completo del contacto',
   `tipo_sat` varchar(10) NOT NULL COMMENT 'Persona Física o Persona Moral',
   `celular_wa` int(11) NOT NULL,
   `telefono` int(11) NOT NULL,
@@ -45,7 +44,9 @@ CREATE TABLE `negocios` (
   `municipio` int(15) NOT NULL,
   `estado` varchar(15) NOT NULL,
   `zip_code` int(6) NOT NULL,
-  `descuento` int(3) NOT NULL COMMENT 'Porcentaje de descuento registrado'
+  `descuento` int(3) NOT NULL COMMENT 'Porcentaje de descuento registrado',
+  `username` varchar(20) NOT NULL,
+  `pwd` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -84,7 +85,7 @@ CREATE TABLE `registro_pcd` (
 
 CREATE TABLE `tickets` (
   `id` int(11) NOT NULL,
-  `rfc` varchar(14) NOT NULL,
+  `id_negocio` varchar(14) NOT NULL,
   `num_ticket` varchar(20) NOT NULL,
   `total_venta` varchar(8) NOT NULL COMMENT 'Total del ticket de venta en el que se aplicó el descuento',
   `fecha` datetime NOT NULL,
