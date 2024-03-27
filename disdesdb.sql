@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-03-2024 a las 05:24:51
+-- Tiempo de generación: 27-03-2024 a las 05:28:23
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `disdesdb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `login_negocios`
+--
+
+CREATE TABLE `login_negocios` (
+  `id` int(11) NOT NULL,
+  `id_negocio` int(11) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `pdw` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -44,9 +57,7 @@ CREATE TABLE `negocios` (
   `municipio` int(15) NOT NULL,
   `estado` varchar(15) NOT NULL,
   `zip_code` int(6) NOT NULL,
-  `descuento` int(3) NOT NULL COMMENT 'Porcentaje de descuento registrado',
-  `username` varchar(20) NOT NULL,
-  `pwd` varchar(20) NOT NULL
+  `descuento` int(3) NOT NULL COMMENT 'Porcentaje de descuento registrado'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
