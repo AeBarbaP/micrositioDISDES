@@ -110,7 +110,7 @@
 
       <!-- <a class="btn-getstarted" href="index.html#about">Registra tu Negocio</a> -->
       <div class="btn-group">
-        <a href="#" class="btn text-light" style="background-color:#255faa;">Registra tu Negocio</a>
+        <a href="registro-empresa.html" class="btn text-light" style="background-color:#255faa;">Registra tu Negocio</a>
         <a href="#" class="btn text-light" style="background-color:#e84545;">Inicia Sesión</a>
       </div>
 
@@ -344,7 +344,16 @@
 
           <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="100">
             <div class="service-item d-flex">
-              <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
+              <div class="flex-shrink-0 me-4">
+                <lord-icon
+                  src="https://cdn.lordicon.com/ozmbktct.json"
+                  trigger="in"
+                  delay="1500"
+                  state="in-reaveal"
+                  colors="primary:#255faa,secondary:#8ac64b"
+                  style="width:70px;height:70px">
+                </lord-icon>
+              </div>
               <div>
                 <h4 class="title"><a href="services-details.html" class="stretched-link">Lorem Ipsum</a></h4>
                 <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
@@ -425,10 +434,10 @@
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
           <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-product">Card</li>
-            <li data-filter=".filter-branding">Web</li>
+            <li data-filter="*" class="filter-active">Todos</li>
+            <li data-filter=".filter-app">Farmacias</li>
+            <li data-filter=".filter-product">Restaurantes</li>
+            <li data-filter=".filter-branding">Departamentales</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
@@ -1075,8 +1084,14 @@
             <div class="row gy-4">
               <div class="col-md-6">
                 <div class="info-item" data-aos="fade" data-aos-delay="200">
-                  <i class="bi bi-geo-alt"></i>
-                  <h3>Dirección</h3>
+                  <lord-icon
+                    src="https://cdn.lordicon.com/surcxhka.json"
+                    trigger="hover"
+                    state="hover-jump-roll"
+                    colors="primary:#255faa,secondary:#8ac64b"
+                    style="width:60px;height:60px">
+                  </lord-icon>
+                  <h3 class="mt-1">Dirección</h3>
                   <p>Circuito Cerro del Gato S/N</p>
                   <p>Edificio K, 2do Piso</p>
                   <p>Ciudad Administrativa, C.P. 98160</p>
@@ -1085,8 +1100,13 @@
 
               <div class="col-md-6">
                 <div class="info-item" data-aos="fade" data-aos-delay="300">
-                  <i class="bi bi-telephone"></i>
-                  <h3>Llámanos</h3>
+                  <lord-icon
+                    src="https://cdn.lordicon.com/rsvfayfn.json"
+                    trigger="hover"
+                    colors="primary:#255faa"
+                    style="width:55px;height:55px">
+                  </lord-icon>
+                  <h3 class="mt-1">Llámanos</h3>
                   <p>492 492 5000</p>
                   <p>492 492 5088 y 5089</p>
                   <p>Extensiones 46100 y 46103</p>
@@ -1095,7 +1115,12 @@
 
               <div class="col-md-6">
                 <div class="info-item" data-aos="fade" data-aos-delay="400">
-                  <i class="bi bi-envelope"></i>
+                  <lord-icon
+                    src="https://cdn.lordicon.com/ebjjjrhp.json"
+                    trigger="hover"
+                    colors="primary:#255faa,secondary:#8ac64b"
+                    style="width:60px;height:60px">
+                  </lord-icon>
                   <h3>Email</h3>
                   <p>inclusion@zacatecas.gob.mx</p>
                   <p>contacto.disdes@zacatecas.gob.mx</p>
@@ -1104,9 +1129,14 @@
 
               <div class="col-md-6">
                 <div class="info-item" data-aos="fade" data-aos-delay="500">
-                  <i class="bi bi-clock"></i>
+                  <lord-icon
+                    src="https://cdn.lordicon.com/qvyppzqz.json"
+                    trigger="hover"
+                    colors="primary:#255faa,secondary:#8ac64b"
+                    style="width:60px;height:60px">
+                  </lord-icon>
                   <h3>Horario</h3>
-                  <p>Monday - Friday</p>
+                  <p>Lunes - Viernes</p>
                   <p>8:30AM - 03:30PM</p>
                 </div>
               </div><!-- End Info Item -->
@@ -1117,7 +1147,7 @@
 
           <div class="col-lg-6">
             <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
+              <div class="row gy-4 mt-2">
 
                 <div class="col-md-6">
                   <input type="text" name="name" class="form-control" placeholder="Nombre" required>
@@ -1128,7 +1158,7 @@
                 </div>
 
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Tema" required>
+                  <input type="text" class="form-control" name="subject" placeholder="Título" required>
                 </div>
 
                 <div class="col-md-12">
@@ -1136,9 +1166,9 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
+                  <div class="loading">Cargando</div>
                   <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <div class="sent-message">Tu mensaje ha sido enviado. Gracias!</div>
 
                   <button type="submit">Enviar Mensaje</button>
                 </div>
@@ -1173,34 +1203,12 @@
           </div>
         </div>
 
-        <!-- <div class="col-lg-2 col-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
-        </div> -->
-
-        <!-- <div class="col-lg-2 col-6 footer-links">
-          <h4>Servicios</h4>
-          <ul>
-            <li><a href="#">Credencial de PCD</a></li>
-            <li><a href="#">Tarjetón Vehicular</a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-          </ul>
-        </div> -->
-
         <div class="col-lg-5 col-md-12 footer-contact text-center text-md-start">
           <h4>Contáctanos:</h4>
           <p>Circuito Cerro del Gato S/N, Edificio K, 2do. Nivel</p>
           <p>Ciudad Administrativa, C.P. 98160</p>
           <p>Zacatecas, Zac., México</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+52 492 491 5000, 5088 y 5089 Ext. 46100 y 46103</span></p>
+          <p class="mt-4"><strong>Teléfonos:</strong> <span>+52 492 491 5000, 5088 y 5089 Ext. 46100 y 46103</span></p>
           <p><strong>Email:</strong> <span>info-disdes@zacatecas.gob.mx</span></p>
         </div>
 
