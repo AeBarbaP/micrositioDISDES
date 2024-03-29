@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <h5 class="card-title">'.$row['nombre_rs'].'</h5>
                         <p class="card-text"><small class="text-body-light">
-                        <a class="icon-link icon-link-hover text-light" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="#">
+                        <a class="icon-link icon-link-hover text-light" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="javascript: void(0)" onclick="abrirEmpresa('.$row['id'].')">
                             <svg class="bi" aria-hidden="true"><use xlink:href="#link2"></use></svg>
                             Ver perfil
                         </a>
