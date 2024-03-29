@@ -31,7 +31,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
-    <script src=""></script>
+    <script src="query.js"></script>
 
 <!-- =======================================================
   * Template Name: Append
@@ -48,7 +48,7 @@
 </symbol>
 </svg>
 
-<body class="blog-details-page" data-bs-spy="scroll" data-bs-target="#navmenu">
+<body class="blog-details-page" data-bs-spy="scroll" data-bs-target="#navmenu" onload="queryEmpresas()">
 
 <!-- ======= Header ======= -->
 <header id="header" class="header sticky-top d-flex align-items-center">
@@ -121,132 +121,8 @@
                 <div class="row">
                     <h5 class="mt-2 mb-4"><strong>Empresas registradas</strong></h5>
 
-
-                    <div class="col-lg-4">
-                      <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                          <div class="col-md-4 my-auto">
-                            <img src="assets/img/lazaritoDIV.png" class="img-fluid rounded-start p-2" alt="...">
-                          </div>
-                          <div class="col-md-8 bg-primary text-light text-center p-3">
-                            <div class="card-body">
-                              <h5 class="card-title">Empresa registrada</h5>
-                              <p class="card-text"><small class="text-body-light">
-                                <a class="icon-link icon-link-hover text-light" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="#">
-                                  <svg class="bi" aria-hidden="true"><use xlink:href="#link2"></use></svg>
-                                  Ver perfil
-                                </a>
-                                 </small></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                    <div class="col-lg-4">
-                      <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                          <div class="col-md-4 my-auto">
-                            <img src="assets/img/lazaritoDIV.png" class="img-fluid rounded-start p-2" alt="...">
-                          </div>
-                          <div class="col-md-8 bg-primary text-light text-center p-3">
-                            <div class="card-body">
-                              <h5 class="card-title">Empresa registrada</h5>
-                              <p class="card-text"><small class="text-body-light">
-                                <a class="icon-link icon-link-hover text-light" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="#">
-                                  <svg class="bi" aria-hidden="true"><use xlink:href="#link2"></use></svg>
-                                  Ver perfil
-                                </a>
-                                 </small></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                    <div class="col-lg-4">
-                      <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                          <div class="col-md-4 my-auto">
-                            <img src="assets/img/lazaritoDIV.png" class="img-fluid rounded-start p-2" alt="...">
-                          </div>
-                          <div class="col-md-8 bg-primary text-light text-center p-3">
-                            <div class="card-body">
-                              <h5 class="card-title">Empresa registrada</h5>
-                              <p class="card-text"><small class="text-body-light">
-                                <a class="icon-link icon-link-hover text-light" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="#">
-                                  <svg class="bi" aria-hidden="true"><use xlink:href="#link2"></use></svg>
-                                  Ver perfil
-                                </a>
-                                 </small></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                    <div class="col-lg-4">
-                      <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                          <div class="col-md-4 my-auto">
-                            <img src="assets/img/lazaritoDIV.png" class="img-fluid rounded-start p-2" alt="...">
-                          </div>
-                          <div class="col-md-8 bg-primary text-light text-center p-3">
-                            <div class="card-body">
-                              <h5 class="card-title">Empresa registrada</h5>
-                              <p class="card-text"><small class="text-body-light">
-                                <a class="icon-link icon-link-hover text-light" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="#">
-                                  <svg class="bi" aria-hidden="true"><use xlink:href="#link2"></use></svg>
-                                  Ver perfil
-                                </a>
-                                 </small></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                    <div class="col-lg-4">
-                      <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                          <div class="col-md-4 my-auto">
-                            <img src="assets/img/lazaritoDIV.png" class="img-fluid rounded-start p-2" alt="...">
-                          </div>
-                          <div class="col-md-8 bg-primary text-light text-center p-3">
-                            <div class="card-body">
-                              <h5 class="card-title">Empresa registrada</h5>
-                              <p class="card-text"><small class="text-body-light">
-                                <a class="icon-link icon-link-hover text-light" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="#">
-                                  <svg class="bi" aria-hidden="true"><use xlink:href="#link2"></use></svg>
-                                  Ver perfil
-                                </a>
-                                 </small></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-
-                    <div class="col-lg-4">
-                      <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row g-0">
-                          <div class="col-md-4 my-auto">
-                            <img src="assets/img/lazaritoDIV.png" class="img-fluid rounded-start p-2" alt="...">
-                          </div>
-                          <div class="col-md-8 bg-primary text-light text-center p-3">
-                            <div class="card-body">
-                              <h5 class="card-title">Empresa registrada</h5>
-                              <p class="card-text"><small class="text-body-light">
-                                <a class="icon-link icon-link-hover text-light" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="#">
-                                  <svg class="bi" aria-hidden="true"><use xlink:href="#link2"></use></svg>
-                                  Ver perfil
-                                </a>
-                                 </small></p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                </div>
+                    <span id="selectEmpresas"></span>
+                    
                 
 
               </div><!-- End post content -->
