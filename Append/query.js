@@ -194,3 +194,15 @@ function edicionEmpresa(id){
         }
     }); 
 }
+
+// query para empresas para agregar familiares
+function queryUsers(){
+    $.ajax({
+        type: "POST",
+        url: "query/query_usuarios.php",
+        dataType: "html",
+        success: function(data) {
+            $('#selectEmpresas').fadeIn(1000).html(data)
+        }
+    });
+}
