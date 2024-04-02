@@ -1,35 +1,32 @@
 <?php
     include("../prcd/qc3.php");
     $x = 0;
-    $sql ="SELECT * FROM negocios ORDER BY id ASC";
+    $username = $_POST['username'];
+    $pwd = $_POST['pwd'];
+    $sql ="SELECT * FROM login_negocios WHERE username = '$username' AND pdw = '$pwd'";
     $resultadoSql = $conn3->query($sql);
-    echo'
-    <table class="table">
-            <thead class="text-center">
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">RFC</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Eliminar</th>
-                </tr>
-            </thead>
-            <tbody class="text-center">
-            ';
-    while($row = $resultadoSql->fetch_assoc()){
-        $x++;
-        echo'
-                <tr>
-                    <th scope="row">'.$x.'</th>
-                    <td>'.$row['nombre_rs'].'</td>
-                    <td>'.$row['rfc'].'</td>
-                    <td><a href="javascript: void(0)" onclick="editarEmpresa('.$row['id'].')"><i class="bi bi-pencil-square"></i> Editar</a></td>
-                    <td><a href="javascript: void(0)" onclick="modalEliminar('.$row['id'].')"><i class="bi bi-trash3-fill"></i> Eliminar</a></td>
-                </tr>            
-        ';
+    $filas = $resultadoSql->num_rows;
+    if ($filas == 1) {
+        $row = $resultadoSql->fetch_assoc();
+        if ($row['perfil'] == 1) {
+            echo json_encode(array(
+                'perfil'=>1
+            ));	
+        }
+        else if ($row['perfil'] == 2) {
+            echo json_encode(array(
+                'perfil'=>2
+            ));	
+        }
+        else if ($row['perfil'] == 3) {
+            echo json_encode(array(
+                'perfil'=>3
+            ));	
+        }
     }
-    echo'
-            </tbody>
-    </table>
-        ';
+    else {
+        echo json_encode(array(
+            'perfil'=>0
+        ));	
+    }
 ?>
