@@ -13,9 +13,9 @@ function login() {
         dataType: "json",
         success: function(data){
             var jsonData = JSON.parse(JSON.stringify(data));
-            var success = jsonData.success;
+            var perfil = jsonData.perfil;
             
-            if (success == 1) {
+            if (perfil == 1) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Acceso correcto',
@@ -27,7 +27,7 @@ function login() {
                 $('#agregarUser').modal('hide'); 
   
             }
-            if (success == 2) {
+            if (perfil == 2) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Acceso correcto',
