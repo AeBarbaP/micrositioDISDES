@@ -27,6 +27,7 @@ function agregarEmpresa(){
     var categoria = document.getElementById("categoria").value;
     var userName = document.getElementById("userName").value;
     var pdw = document.getElementById("pdw").value;
+    document.getElementById("progressBar").hidden = false;
 
     if (nombre == "" || rfc == "" || regimen == "" || contacto == "" || celular == "" || telefono == "" || email == "" || categoria == "" || calle == "" || numExt == "" || numInt == "" || colonia == "" || cp == "" || localidad == "" || municipio == "" || estado == "" || descuento == "" || userName == "" || pdw == "") {
 
@@ -73,7 +74,7 @@ function agregarEmpresa(){
                 });
                 //colaboradoresDashboard();
                 $('#agregarUser').modal('hide'); 
-  
+
             } else if (success == 0){
                 Swal.fire({
                     icon: 'success',
