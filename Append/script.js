@@ -71,7 +71,7 @@ function agregarEmpresa(){
                     confirmButtonColor: "#0d6efd",
                     footer: 'INCLUSIÓN'
                 });
-                colaboradoresDashboard();
+                //colaboradoresDashboard();
                 $('#agregarUser').modal('hide'); 
   
             } else if (success == 0){
@@ -125,40 +125,38 @@ function foto() {
     
     function progressHandler(event) {
 
-        _("loaded_n_total"+doc).innerHTML = "Cargado " + event.loaded + " bytes de " + event.total;
+        _("loaded_n_total").innerHTML = "Cargado " + event.loaded + " bytes de " + event.total;
         var percent = (event.loaded / event.total) * 100;
-        _("progressBar"+doc).value = Math.round(percent);
-        _("status"+doc).innerHTML = Math.round(percent) + "% subido... espere un momento";
-        document.getElementById('flagFoto').value = 1;
+        _("progressBar").value = Math.round(percent);
+        _("status").innerHTML = Math.round(percent) + "% subido... espere un momento";
+        //document.getElementById('flagFoto').value = 1;
     }
     
     function completeHandler(event) {
-        _("status"+doc).innerHTML = event.target.responseText;
-        _("progressBar"+doc).value = 100; //wil clear progress bar after successful upload
-        _("file"+doc).style.display='none';
-        _("progressBar"+doc).style.display='none';
+        _("status").innerHTML = event.target.responseText;
+        _("progressBar").value = 100; //wil clear progress bar after successful upload
+        _("file").style.display='none';
+        _("progressBar").style.display='none';
         // document.getElementById('registroDoc'+doc).disabled = true;
         // document.getElementById('registroDoc'+doc).setAttribute('style','color: #59c965');
         // document.getElementById('profile').setAttribute('src','assets/docs_expedientes/photos/photosarchivo_'+idUsr+'.*');
         // document.getElementById('btnModal'+doc).disabled = true;
         // $(".bloqueo"+doc).attr("disabled", true);
-        buscarPhoto(idUsr);
+        //buscarPhoto(idUsr);
     }
     
     function errorHandler(event) {
-        _("status"+doc).innerHTML = "Fallo en la subida";
+        _("status").innerHTML = "Fallo en la subida";
     }
     
     function abortHandler(event) {
-        _("status"+doc).innerHTML = "Fallo en la subida";
+        _("status").innerHTML = "Fallo en la subida";
     }
 }
 
 function fotoUpload() {
-    var doc = "_photo";
     var idUsr = document.getElementById('curp_exp').value;
-    var file = _("file"+doc).files[0];
-    var documento = doc;
+    var file = _("file").files[0];
     var idUsuario = idUsr;
     var formdata = new FormData();
     // variable del name file
@@ -177,31 +175,39 @@ function fotoUpload() {
     
     function progressHandler(event) {
 
-        _("loaded_n_total"+doc).innerHTML = "Cargado " + event.loaded + " bytes de " + event.total;
+        _("loaded_n_total").innerHTML = "Cargado " + event.loaded + " bytes de " + event.total;
         var percent = (event.loaded / event.total) * 100;
-        _("progressBar"+doc).value = Math.round(percent);
-        _("status"+doc).innerHTML = Math.round(percent) + "% subido... espere un momento";
-        document.getElementById('flagFoto').value = 3;
+        _("progressBar").value = Math.round(percent);
+        _("status").innerHTML = Math.round(percent) + "% subido... espere un momento";
+        //document.getElementById('flagFoto').value = 3;
     }
     
     function completeHandler(event) {
-        _("status"+doc).innerHTML = event.target.responseText;
-        _("progressBar"+doc).value = 100; //wil clear progress bar after successful upload
-        _("file"+doc).style.display='none';
-        _("progressBar"+doc).style.display='none';
+        _("status").innerHTML = event.target.responseText;
+        _("progressBar").value = 100; //wil clear progress bar after successful upload
+        _("file").style.display='none';
+        _("progressBar").style.display='none';
         // document.getElementById('registroDoc'+doc).disabled = true;
         // document.getElementById('registroDoc'+doc).setAttribute('style','color: #59c965');
         // document.getElementById('profile').setAttribute('src','assets/docs_expedientes/photos/photosarchivo_'+idUsr+'.*');
         // document.getElementById('btnModal'+doc).disabled = true;
         // $(".bloqueo"+doc).attr("disabled", true);
-        buscarPhoto(idUsr);
+        
     }
     
     function errorHandler(event) {
-        _("status"+doc).innerHTML = "Fallo en la subida";
+        _("status").innerHTML = "Fallo en la subida";
     }
     
     function abortHandler(event) {
-        _("status"+doc).innerHTML = "Fallo en la subida";
+        _("status").innerHTML = "Fallo en la subida";
     }
 }
+
+var loadFile = function(event) {
+    var output = document.getElementById('profile');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+};
