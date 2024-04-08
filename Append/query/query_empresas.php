@@ -10,12 +10,12 @@
                     <div class="col-md-4 my-auto">
                         <img src="assets/logotipos/'.$row['logo'].'" class="img-fluid rounded-start p-2" alt="...">
                     </div>
-                    <div class="col-md-8 bg-primary text-light text-center p-3">
+                    <div class="col-md-8 text-center p-3">
                         <div class="card-body">
                             <h5 class="card-title">'.$row['nombre_rs'].'</h5>
                             <p class="card-text">
                                 <small class="text-body-light">
-                                    <a class="icon-link icon-link-hover text-light" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="javascript: void(0)" onclick="abrirEmpresa('.$row['id'].')">
+                                    <a class="icon-link icon-link-hover" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="javascript: void(0)" onclick="abrirEmpresa('.$row['id'].')">
                                     <svg class="bi" aria-hidden="true"><use xlink:href="#link2"></use></svg>
                                     Ver perfil</a>
                                 </small>

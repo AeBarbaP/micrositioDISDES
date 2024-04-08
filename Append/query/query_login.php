@@ -24,7 +24,7 @@
             ));	
         }
     }
-    else {
+    else if ($filas == 0){
         echo json_encode(array(
             'perfil'=>0
         ));	

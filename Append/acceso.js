@@ -5,7 +5,7 @@ function login() {
 
     $.ajax({
         type:"POST",
-        url:"query/query_acceso.php",
+        url:"query/query_login.php",
         data:{
             username: username,
             pwd:pwd
@@ -23,9 +23,6 @@ function login() {
                     confirmButtonColor: "#0d6efd",
                     footer: 'INCLUSIÓN'
                 });
-                colaboradoresDashboard();
-                $('#agregarUser').modal('hide'); 
-  
             }
             if (perfil == 2) {
                 Swal.fire({
@@ -35,11 +32,8 @@ function login() {
                     confirmButtonColor: "#0d6efd",
                     footer: 'INCLUSIÓN'
                 });
-                colaboradoresDashboard();
-                $('#agregarUser').modal('hide'); 
-  
             }
-            if (success == 3) {
+            if (perfil == 3) {
                 Swal.fire({
                     icon: 'success',
                     title: 'Acceso correcto',
@@ -47,13 +41,10 @@ function login() {
                     confirmButtonColor: "#0d6efd",
                     footer: 'INCLUSIÓN'
                 });
-                colaboradoresDashboard();
-                $('#agregarUser').modal('hide'); 
-  
             }
-            else if (success == 0){
+            else if (perfil == 0){
                 Swal.fire({
-                    icon: 'success',
+                    icon: 'warning',
                     title: 'Usuario incorrecto',
                     text: 'Proceso no exitoso',
                     footer: 'INCLUSIÓN'
