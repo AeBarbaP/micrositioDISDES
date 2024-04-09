@@ -206,3 +206,16 @@ function queryUsers(){
         }
     });
 }
+
+function selectCategorias(){
+    $.ajax({
+        type:"POST",
+        url:"query/query_cat_categorias.php",
+        dataType: "html",
+        success: function(data){
+            $('#categoria').fadeIn(1000).html(data)
+            
+            }
+        
+        });
+}

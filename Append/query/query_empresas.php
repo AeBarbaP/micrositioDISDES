@@ -17,7 +17,7 @@
                                 <small class="text-body-light">
                                     <a class="icon-link icon-link-hover" style="--bs-link-hover-color-rgb: 25, 135, 84;" href="javascript: void(0)" onclick="abrirEmpresa('.$row['id'].')">
                                     <svg class="bi" aria-hidden="true"><use xlink:href="#link2"></use></svg>
-                                    Ver perfil</a>
+                                    Ver detalles</a>
                                 </small>
                             </p>
                         </div>

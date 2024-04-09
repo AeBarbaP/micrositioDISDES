@@ -13,6 +13,7 @@ include('qc3.php');
     $celular = $_POST['celular'];
     $telefono = $_POST['telefono'];
     $email = $_POST['email'];
+    $link = $_POST['link'];
     $categoria = $_POST['categoria'];
     $calle = $_POST['calle'];
     $numExt = $_POST['numExt'];
@@ -34,6 +35,7 @@ include('qc3.php');
         celular_wa,
         telefono,
         e_mail,
+        link,
         categoria,
         calle,
         num_ext,
@@ -53,6 +55,7 @@ include('qc3.php');
             '$celular',
             '$telefono',
             '$email',
+            '$link',
             '$categoria',
             '$calle',
             '$numExt',

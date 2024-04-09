@@ -15,6 +15,7 @@ function agregarEmpresa(){
     var celular = document.getElementById("celular").value;
     var telefono = document.getElementById("telefono").value;
     var email = document.getElementById("email").value;
+    var link = document.getElementById("link").value;
     var calle = document.getElementById("calle").value;
     var numExt = document.getElementById("numExt").value;
     var numInt = document.getElementById("numInt").value;
@@ -46,6 +47,7 @@ function agregarEmpresa(){
             celular:celular,
             telefono:telefono,
             email:email,
+            link:link,
             categoria:categoria,
             calle:calle,
             numExt:numExt,
@@ -212,3 +214,4 @@ var loadFile = function(event) {
       URL.revokeObjectURL(output.src) // free memory
     }
 };
+
