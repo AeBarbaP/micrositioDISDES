@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2024 at 11:31 PM
+-- Generation Time: Apr 09, 2024 at 11:29 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `disdesdb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categorias_b`
+--
+
+CREATE TABLE `categorias_b` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `categorias_b`
+--
+
+INSERT INTO `categorias_b` (`id`, `nombre`) VALUES
+(1, 'Farmacia'),
+(2, 'Restaurant'),
+(3, 'Zapatería'),
+(4, 'Supermerado'),
+(5, 'Tienda Departamental'),
+(6, 'Tienda de Conveniencia'),
+(7, 'Abarrotes'),
+(8, 'Ropa'),
+(9, 'Pastelería'),
+(10, 'Panadería'),
+(11, 'Dulcería'),
+(12, 'Frutería'),
+(13, 'Carnicería'),
+(14, 'Servicio'),
+(15, 'Ferretería');
 
 -- --------------------------------------------------------
 
@@ -46,7 +78,10 @@ INSERT INTO `login_negocios` (`id`, `id_negocio`, `username`, `pdw`, `perfil`) V
 (4, 'GCZ950620HG5', 'cande', '123456789', 3),
 (5, 'GCZ950620HG5', 'cande', '123456789', 3),
 (6, 'GCZ950620HG5', 'cande', '1548', 3),
-(7, 'GCZ950620HG5', 'cande', '1548', 3);
+(7, 'GCZ950620HG5', 'cande', '1548', 3),
+(8, 'BHZ5869365JU4', 'bbros', '123456789', 3),
+(9, 'BHZ5869365JU4', 'bbros', '123456', 3),
+(10, 'BHZ5869365JU4', 'bbros', '123456789', 3);
 
 -- --------------------------------------------------------
 
@@ -84,12 +119,8 @@ CREATE TABLE `negocios` (
 
 INSERT INTO `negocios` (`id`, `nombre_rs`, `rfc`, `representante`, `tipo_sat`, `celular_wa`, `telefono`, `e_mail`, `categoria`, `logo`, `calle`, `num_ext`, `num_int`, `colonia`, `localidad`, `municipio`, `estado`, `zip_code`, `descuento`, `ubicacionMaps`, `link`) VALUES
 (1, 'Empresa de prueba 2', 'DSDSD445308I', 'Conocido', '1', 2147483647, 123123213, 'jesusrlv_rojo@hotmail.com', 0, '', 'acccc', '3', '2', 'dffsd', '0', '0', 'a', 22333, 12, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14714.986687512619!2d-102.5683045!3d22.77478075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86824e8e11d7d603%3A0x4196a8a29dca4635!2sZacatecas%20Centro%2C%20Zacatecas%2C%20Zac.!5e0!3m2!1ses!2smx!4v1711746688557!5m2!1ses!2smx\" width=\"100%\" height=\"auto\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'https://www.zacatecas.gob.mx/'),
-(2, 'Gorditas Cande', 'GCZ950620HG5', 'Fulanito', '2', 2147483647, 2147483647, 'cande@gmail.com', 2, 'logo_GCZ950620HG5.png', 'Conos', '45', 'A', 'Santa Mónica', 'Santa Mónic', 'Guadalupe', 'Zacatecas', 99581, 10, '', ''),
-(3, 'Gorditas Cande', 'GCZ950620HG5', 'Fulanito', '2', 2147483647, 2147483647, 'cande@gmail.com', 2, 'logo_GCZ950620HG5.png', 'Conos', '45', 'A', 'Santa Mónica', 'Santa Mónic', 'Guadalupe', 'Zacatecas', 99581, 10, '', ''),
-(4, 'Gorditas Cande', 'GCZ950620HG5', 'Fulanito', '2', 2147483647, 2147483647, 'cande@gmail.com', 2, 'logo_GCZ950620HG5.png', 'Conos', '45', 'A', 'Santa Mónica', 'Santa Mónic', 'Guadalupe', 'Zacatecas', 99581, 10, '', ''),
-(5, 'Gorditas Cande', 'GCZ950620HG5', 'Fulanito', '2', 2147483647, 2147483647, 'cande@gmail.com', 2, 'logo_GCZ950620HG5.png', 'Conos', '45', 'A', 'Santa Mónica', 'Santa Mónic', 'Guadalupe', 'Zacatecas', 99581, 10, '', ''),
-(6, 'Gorditas Cande', 'GCZ950620HG5', 'Fulanito', '2', 2147483647, 2147483647, 'cande@gmail.com', 2, 'logo_GCZ950620HG5.png', 'Conos', '45', 'A', 'Santa Mónica', 'Santa Mónic', 'Guadalupe', 'Zacatecas', 99581, 10, '', ''),
-(7, 'Gorditas Cande', 'GCZ950620HG5', 'Fulanito', '2', 2147483647, 2147483647, 'cande@gmail.com', 2, 'logo_GCZ950620HG5.png', 'Conos', '45', 'A', 'Santa Mónica', 'Santa Mónic', 'Guadalupe', 'Zacatecas', 99581, 10, '', '');
+(7, 'Gorditas Cande', 'GCZ950620HG5', 'Fulanito', '2', 2147483647, 2147483647, 'cande@gmail.com', 2, 'logo_GCZ950620HG5.png', 'Conos', '45', 'A', 'Santa Mónica', 'Santa Mónic', 'Guadalupe', 'Zacatecas', 99581, 10, '', ''),
+(10, 'B Hermanos', 'BHZ5869365JU4', 'Fulanito', '2', 2147483647, 49215789, 'bhermanos@info.com', 4, 'logo_BHZ5869365JU4.png', 'conocido', '74', 'd', 'fdios', 'djs', 'gopw', 'gpold´ki', 74, 12, '', '');
 
 -- --------------------------------------------------------
 
@@ -139,6 +170,12 @@ CREATE TABLE `tickets` (
 --
 
 --
+-- Indexes for table `categorias_b`
+--
+ALTER TABLE `categorias_b`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `login_negocios`
 --
 ALTER TABLE `login_negocios`
@@ -173,16 +210,22 @@ ALTER TABLE `tickets`
 --
 
 --
+-- AUTO_INCREMENT for table `categorias_b`
+--
+ALTER TABLE `categorias_b`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `login_negocios`
 --
 ALTER TABLE `login_negocios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `negocios`
 --
 ALTER TABLE `negocios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `personas_autorizadas`
