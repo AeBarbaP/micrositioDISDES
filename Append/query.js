@@ -219,3 +219,15 @@ function selectCategorias(){
         
         });
 }
+function fotosAsociados(){
+    $.ajax({
+        type:"POST",
+        url:"query/query_fotos_empresas.php",
+        dataType: "html",
+        success: function(data){
+            $('#galery').fadeIn(1000).html(data)
+            
+            }
+        
+        });
+}
