@@ -219,15 +219,25 @@ function selectCategorias(){
         
         });
 }
+function categoriasUL(){
+    $.ajax({
+        type:"POST",
+        url:"query/query_fotos_empresasCat.php",
+        dataType: "html",
+        success: function(data){
+            $('#categoriasUl').fadeIn(1000).html(data)
+            }
+        
+        });
+}
 function fotosAsociados(){
     $.ajax({
         type:"POST",
         url:"query/query_fotos_empresas.php",
         dataType: "html",
         success: function(data){
-            $('#galery').fadeIn(1000).html(data)
-            
-            }
+            $('#galery2').fadeIn(1000).html(data)
+        }
         
-        });
+    });
 }
