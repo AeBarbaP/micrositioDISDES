@@ -1,261 +1,825 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.101.0">
-    <title>Sistema Único de Identificación y Verificación- INCLUSIÓN</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="instascan.min.js"></script>
-    <script src="script.js"></script>
-    <!-- <script src="print.js" type="text/javascript"></script> -->
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="es">
 
-    <audio id="myAudio">
-      <source src="beep.mp3" type="audio/mpeg">
-    </audio>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <style>
-      body {
-          font-family: 'Quicksand', sans-serif;
-        }
+  <title>Inicio | -DIS +DES</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-      .card:hover {
-          background: #ffffff;
-          transform: scale(1.10);
-          z-index: 20;
-      }
+  <!-- Favicons -->
+  <link href="assets/img/lazaritoICO.ico" rel="icon">
+  <link href="assets/img/lazaritoICO.ico" rel="apple-touch-icon">
 
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="query.js"></script>
 
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
+  <!-- Template Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
 
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
+  <!-- =======================================================
+  * Template Name: Append
+  * Updated: Mar 13 2024 with Bootstrap v5.3.3
+  * Template URL: https://bootstrapmade.com/append-bootstrap-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+<style>
 
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
+#inputL{
+      width: 50%;
+    }
+  
+  @media only screen and (max-width: 500px) {
 
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
+    #inputL{
+      width: 100%;
+    }
 
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-    </style>
+    #divLazarito{
+      margin-top:30px;
+    }
 
+    #lazaritoDIV{
+      width: 75%;
+      height: 75%;
+      margin: auto;
+    }
     
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
-  </head>
-  <body class="text-center" style="background-image: url(img/4850037.jpg); background-repeat: no-repeat;background-attachment: fixed; background-size:cover;">
-    <main class="form-signin w-100 m-auto">
-      
-      <form action="prcd/acceso.php" method="post">
-        <!-- <img class="mb-4" src="img/Logo_Gobierno_Inclusion_VColorPNG2.png" alt="" width="90%" height="auto">
-        <h1><strong>SUIDEV</strong></h1>
-        <p>Sistema Único de Identificación y Verificación</p> -->
-        <br>
-        <div class="row">
-          <p class="mb-5"></p>
-          <br class="mb-5">
-          <p class="mt-5 mb-5"></p>
-          <br class="mt-5 mb-5">
-          <h5 class="mb-5"><strong>Verificador de Credenciales</strong></h5>
-          <br>
-              <div class="col-sm-12 mt-5">
-                <a data-bs-toggle="modal" data-bs-target="#validate" class="text-dark" style="text-decoration: none;">
-                    <div class="card mb-3" style="max-width: 100%;">
-                        <div class="row g-0">
-                            <div class="col-sm-12">
-                                <img src="img/QRValidar.png" style="width: 275px; height: 100%; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                  <div class="col-sm-12">
-                    <div class="card-body">
-                        <h5 class="card-title mb-4"><strong>Escanea aquí...</strong></h5>
-                    </div>
-                  </div>
-              </div>
-              <!-- <div class="col-sm-12">
-                <a href="login.html" class="text-dark" style="text-decoration: none;">
-                    <div class="card mb-3" style="max-width: 100%;">
-                        <div class="row g-0">
-                            <div class="col-sm-12">
-                                <img src="img/Login.png" style="width: 275px; height: 100%; object-fit: cover; object-position:center; background-repeat: no-repeat;" alt="...">
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                    <div class="col-sm-12">
-                      <div class="card-body">
-                          <h5 class="card-title"><strong>Iniciar Sesión</strong></h5>
-                      </div>
-                    </div>
-                </div> -->
+  }
+</style>
+
+<body class="index-page" data-bs-spy="scroll" data-bs-target="#navmenu" onload="fotosAsociados();categoriasUL()">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <h1 class="ms-4">-DIS +DES</h1>
+        <span>.</span>
+      </a>
+
+      <!-- Nav Menu -->
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero" class="active">INICIO</a></li>
+          <li><a href="index.html#about">ACERCA DE</a></li>
+          <li><a href="index.html#faq">PREGUNTAS FRECUENTES</a></li>
+          <li><a href="index.html#portfolio">ASOCIADOS</a></li>
+          <li><a href="validacion/index.html">TÉRMINOS Y CONDICIONES</a></li>
+          <li><a href="blog.html">BLOG</a></li>
+          <!-- <li class="dropdown has-dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down"></i></a>
+            <ul class="dd-box-shadow">
+              <li><a href="#">Dropdown 1</a></li>
+              <li class="dropdown has-dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down"></i></a>
+                <ul class="dd-box-shadow">
+                  <li><a href="#">Deep Dropdown 1</a></li>
+                  <li><a href="#">Deep Dropdown 2</a></li>
+                  <li><a href="#">Deep Dropdown 3</a></li>
+                  <li><a href="#">Deep Dropdown 4</a></li>
+                  <li><a href="#">Deep Dropdown 5</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Dropdown 2</a></li>
+              <li><a href="#">Dropdown 3</a></li>
+              <li><a href="#">Dropdown 4</a></li>
+            </ul>
+          </li> -->
+          <li><a href="index.html#contact">CONTACTO</a></li>
+        </ul>
+
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav><!-- End Nav Menu -->
+
+      <!-- <a class="btn-getstarted" href="index.html#about">Registra tu Negocio</a> -->
+      <div class="btn-group">
+        <a href="registro-empresa.html" class="btn text-light" style="background-color:#255faa;">Registra tu Negocio</a>
+        <a href="login.html" class="btn text-light" style="background-color:#25AA2E;">Inicia Sesión</a>
       </div>
-      <!-- termina card container -->
-        
-        <p class="mt-5 mb-3 text-muted">&copy; 2024 | INCLUSIÓN</p>
-      </form>
 
-      <!-- Modal validar-->
-      <div class="modal fade" id="validate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"><i class="bi bi-person-plus"></i> Validar Credencial</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- Hero Section - Home Page -->
+    <section id="hero" class="hero">
+
+      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+      <!-- <div class="row">  Inicia Row para encapsular a Lazarito -->
+        <!--
+        <div class="col-lg-6"> -->
+          <div class="container">
+            <div class="row d-flex align-items-center">
+              <div class="col-lg-7 col-sm-12">
+                <h2 data-aos="fade-up" data-aos-delay="100">-DIS +DES</h2>
+                <h2 data-aos="fade-up" data-aos-delay="100">Bienvenido(a)</h2>
+                <p data-aos="fade-up" data-aos-delay="200">Grandes ahorros con Inclusión</p>
+                <form action="#" class="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="300" id="inputL">
+                  <input type="text" class="form-control" placeholder="Número de expediente">
+                  <input type="submit" class="btn btn-primary" value="Registrate">
+                </form>
+              </div>
+              <div class="col-lg-5 col-sm-12 justify-content-center" id="divLazarito">
+                <img src="assets/img/lazaritoDIV.png" id="lazaritoDIV" alt="">
+              </div>
             </div>
-            <div class="modal-body">
-              <form action="#" id="form2"><!--form-->
-                <div class="row">
-                  <p><input type="text" name="text" id="textQR" readonly="" class="form-control"></p>
-                  <div class="col-8 text-start mt-1">
-                    <button class="btn btn-primary" type="button" onclick="abrirCamara()"><i class="bi bi-qr-code-scan"></i> Escanear</button>
-                    <button class="btn btn-danger"  id="botonCerrar"><i class="bi bi-qr-code"></i> Cerrar Cámara</button>
-                  </div>
-                  <div class="col-4 mt-1 text-end">
-                    <span id="pruebaInner" ></span>
-                    <p>
-                      <select name="cameraCanje" class="form-select w-100">
-                        <option value="1"><i class="bi bi-camera-video-fill"></i> Frontal Cam</option>
-                        <option value="2"><i class="bi bi-camera-video"></i> Back Cam</option>
-                      </select>
-                    </p>
-                  </div>              
-                </div>
-
-              </form><!--form-->
-
-                <!-- <p id="queryDatos2"></p> -->
+          </div>
+        <!-- </div> -->
+<!-- 
+        <div class="col-lg-4" style="background-image: url('assets/img/lazaritoDIV.png'); background-repeat: no-repeat; background-size: 600px; z-index: 2; background-position: right;">
           
-                <!-- Una vez cargado el QR se muestra el estatus -->
-                <hr>
-                <video id="preview" class="w-100" hidden></video>
-                <img src="img/etiqueta.jpg" width="81%" alt="" style="padding-top: 60px;padding-bottom: 60px;padding-left: 5px;padding-right: 5px;" id="imagenLogo">
+        </div>
+
+      </div>  --><!--Termina row para encapsular a lazarito -->
+
+    </section><!-- End Hero Section -->
+
+    <!-- Clients Section - Home Page -->
+    <section id="clients" class="clients">
+
+      <div class="container-fluid" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <a href="https://concanaco.digital/canacozacatecas/" target="_blank"><img src="assets/img/clients/client-1.png" class="img-fluid w-75" alt=""></a>
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-4 col-md-3 col-6 client-logo">
+            <a href="https://portal.canirac.org.mx/" target="_blank"><img src="assets/img/clients/client-2.png" class="img-fluid w-100" alt=""></a>
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-3 col-6 client-logo">
+            <a href="https://cinemex.com/cine/223/cinemex-zacatecas" target="_blank"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></a>
+          </div><!-- End Client Item -->
+
+          <div class="col-xl-3 col-md-3 col-6 client-logo">
+            <a href="https://www.galerias.com/GaleriasZacatecas" target="_blank"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></a>
+          </div><!-- End Client Item -->
+
+          <!-- <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="">
+          </div> --><!-- End Client Item -->
+
+          <!-- <div class="col-xl-2 col-md-3 col-6 client-logo">
+            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="">
+          </div> --><!-- End Client Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- End Clients Section -->
+
+    <!-- About Section - Home Page -->
+    <section id="about" class="about">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-xl-center gy-5">
+
+          <div class="col-xl-5 content">
+            <h3 style="font-size: large;">¿Por qué -DIS+DES?</h3>
+            <div class="align-self-start">
+              <lord-icon
+                  src="https://cdn.lordicon.com/lhwyshcs.json"
+                  trigger="hover"
+                  colors="primary:#255faa,secondary:#255faa"
+                  style="width:150px;height:150px">
+              </lord-icon>
             </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="bi bi-x-circle-fill"></i> Cerrar</button>
-                </div>
+            <h2>Elijo no poner el <strong>“Dis”</strong> en mi Capacidad.</h2>
+            <small>Robert M. Hensel</small>
+            <br>
+            <a href="#" class="read-more mt-3 mb-3" style="text-align: end;"><span></span><i class="bi bi-arrow-right"></i></a>
+          </div>
+          
+          <div class="col-xl-7">
+            <div class="row gy-4 icon-boxes">
               
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon-box">
+                  <div class="mb-4">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/zlbisnuz.json"
+                        trigger="hover"
+                        colors="primary:#255faa,secondary:#8ac64b"
+                        style="width:100px;height:100px">
+                    </lord-icon>
+                  </div>
+                  <h3>Beneficios</h3>
+                  <p style="text-align: justify;">Las Personas con Discapacidad (PCD) serán acreedoras a algún <strong>DEScuento</strong> en los comercios registrados en el programa.</p>
+                </div>
+              </div> <!-- End Icon Box -->
+              
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box">
+                    <div class="mb-4">
+                      <lord-icon
+                          src="https://cdn.lordicon.com/spukaklw.json"
+                          trigger="hover"
+                          colors="primary:#255faa"
+                          style="width:90px;height:90px">
+                      </lord-icon>
+                    </div>
+                    <h3>Objetivo</h3>
+                    <p style="text-align: justify;">Dar un valor agregado a la Identificación de Persona con Discapacidad para beneficio de ellos y sus familias.</p>
+                  </div>
+                </div> <!-- End Icon Box -->
+                
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                  <div class="icon-box">
+                  <div class="mb-4">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/surcxhka.json"
+                        trigger="hover"
+                        colors="primary:#255faa,secondary:#8ac64b"
+                        style="width:100px;height:100px">
+                    </lord-icon>
+                  </div>
+                  <h3>Dónde comprar</h3>
+                  <p>Negocios de la Zona Conurbada Guadalupe-Zacatecas que están registrados en el programa.</p>
+                  <br>
+                  <a href="empresas.html" class="read-more"><span>más información -></span></a>
+                </div>
+              </div> <!-- End Icon Box -->
+              
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="icon-box">
+                  <div class="mb-4">
+                    <lord-icon
+                        src="https://cdn.lordicon.com/rmjnvgsm.json"
+                        trigger="hover"
+                        colors="primary:#255faa,secondary:#8ac64b"
+                        style="width:100px;height:100px">
+                    </lord-icon>
+                  </div>                  
+                  <h3>Qué se necesita</h3>
+                  <p>Estar inscrito al Padrón Estatal de Personas con Discapaciad del Instituto de INCLUSIÓN y registrarte en el programa.</p>
+                  <br>
+                  <a href="index.html#faq" class="read-more"><span>más información -></span></a>
+                </div>
+              </div> <!-- End Icon Box -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End About Section -->
+
+    <!-- Stats Section - Home Page -->
+    <section id="stats" class="stats">
+
+      <img src="assets/img/stats-bg.jpg" alt="" data-aos="fade-in">
+
+      <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="2326" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Descuentos Aplicados</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-4 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="821" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Personas Beneficiadas</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-4 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="453" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Empresas Registradas</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <!-- <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Convenios Realizados</p>
+            </div>
+          </div --><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- End Stats Section -->
+
+    <!-- Portfolio Section - Home Page -->
+    <section id="portfolio" class="portfolio">
+
+      <!--  Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Asociados</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100" id="categoriasUl">
+            
+          </ul><!-- End Portfolio Filters -->
+
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app" id="l1div">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" id="l1" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 1</h4>
+                <p>Lorem ipsum, dolor sit</p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-1.jpg" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" id="l2" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Product 1</h4>
+                <p>Lorem ipsum, dolor sit</p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-2.jpg" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" id="l3" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Branding 1</h4>
+                <p>Lorem ipsum, dolor sit</p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-3.jpg" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" id="l4" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 2</h4>
+                <p>Lorem ipsum, dolor sit</p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-4.jpg" title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" id="l5" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Product 2</h4>
+                <p>Lorem ipsum, dolor sit</p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-5.jpg" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" id="l6" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Branding 2</h4>
+                <p>Lorem ipsum, dolor sit</p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-6.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" id="l7" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 3</h4>
+                <p>Lorem ipsum, dolor sit</p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-7.jpg" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-product">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" id="l8" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Product 3</h4>
+                <p>Lorem ipsum, dolor sit</p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-8.jpg" title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <img src="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" id="l9" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Branding 3</h4>
+                <p>Lorem ipsum, dolor sit</p>
+                <a href="assets/img/masonry-portfolio/masonry-portfolio-9.jpg" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+                <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Container -->
+
+        </div>
+
+      </div>
+
+    </section><!-- End Pricing Section -->
+
+    <!-- Faq Section - Home Page -->
+    <section id="faq" class="faq">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="content px-xl-5">
+              <h3><span>Preguntas </span><strong>Frecuentes</strong></h3>
+            </div>
+          </div>
+
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="faq-container">
+              <div class="faq-item faq-active">
+                <h3><span class="num">1.</span> <span>Qué se necesita para acceder a los descuentos?</span></h3>
+                <div class="faq-content">
+                  <p>Para acceder a los descuentos necesitas contar con tu credencial de Persona con Discapacidad emitida por el Instituto para la Atención e Inclusión de las Personas con Discapacidad del Estado de Zacatecas y registrarte en el programa -DIS+DES con tu número de expediente.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3><span class="num">2.</span> <span>Cómo obtengo mi credencial de Persona con Discapacidad?</span></h3>
+                <div class="faq-content">
+                  <p>Acude a las oficinas del Instituto para la Atención e Inclusión de las Personas con Discapacidad del Estado de Zacatecas para registrate en el Padrón Estatal de Personas con Discapacidad, presentándote con la documentación solicitada, revisa los requisitios en el sitio oficial del Instituto, haz click en el siguiente link: <a href="https://inclusion.zacatecas.gob.mx/credencial" target="_blank">https://inclusion.zacatecas.gob.mx/credencial</a></p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3><span class="num">3.</span> <span>¿Cuánto tiempo estarán vigentes los descuentos?</span></h3>
+                <div class="faq-content">
+                  <p>Los descuentos que otorguen las empresas o negocios registrados en el programa de descuentos -DIS+DES estarán vigentes durante todo el año en curso, sin embargo, para verificar los términos y condiciones específicos de cada uno de ellos, deberás ingresar a los detalles de la promoción en la que estés interesado.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3><span class="num">4.</span> <span>¿Los descuentos serán aplicados únicamente si se presenta la PCD con su credencial?</span></h3>
+                <div class="faq-content">
+                  <p>Los descuentos serán aplicados tanto a la persona con discapacidad que presente su credencial estatal de PCD vigente, así como a las personas autorizadas que hayan sido designadas por la PCD durante su visita al Instituto para el registro o actualización de datos en el Padrón Estatal de PCD, mostrando su identificación oficial y la credencial estatal de PCD vigente del beneficiario.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3><span class="num">5.</span> <span>¿Quienes pueden ser personas autorizadas?</span></h3>
+                <div class="faq-content">
+                  <p>Una persona autorizada es aquella que demuestre un parentesco con la PCD, es mayor de edad, tiene una identificación oficial con fotografía y vive en el mismo domicilio.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+              
+              <div class="faq-item">
+                <h3><span class="num">6.</span> <span>¿Cuántas personas autorizadas se pueden tener registradas?</span></h3>
+                <div class="faq-content">
+                  <p>Una Persona con Discapacidad tiene permitido registrar hasta un máximo de 3 personas autorizadas.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+
           </div>
         </div>
-      </div> <!-- Termina Modal validar -->
 
-    </main>
-  </body>
+      </div>
+
+    </section><!-- End Faq Section -->
+
+    <!-- Call-to-action Section - Home Page -->
+    <section id="call-to-action" class="call-to-action">
+
+      <img src="assets/img/cta-bg.jpg" alt="">
+
+      <div class="container">
+        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-10">
+            <div class="text-center">
+              <h3>¿Aún no formas parte de -DIS+DES?</h3>
+              <p>Ahora que conoces toda la información, convierte tu empresa o negocio en el lugar más incluyente del Estado!</p>
+              <a class="cta-btn" href="#">Registra tu Empresa Aquí</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section><!-- End Call-to-action Section -->
+
+    <!-- Recent-posts Section - Home Page -->
+    <section id="recent-posts" class="recent-posts">
+
+      <!--  Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Lo más nuevo</h2>
+        <p></p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <article>
+
+              <div class="post-img">
+                <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+              </div>
+
+              <p class="post-category">Accesibilidad</p>
+
+              <h2 class="title">
+                <a href="blog-details.html">Más espacios accesibles en el Centro Histórico</a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <div class="post-meta">
+                  <p class="post-author">Comunicación Social</p>
+                  <p class="post-date">
+                    <time datetime="2024-03-18">Mar 18, 2024</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+
+          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <article>
+
+              <div class="post-img">
+                <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
+              </div>
+
+              <p class="post-category">-DIS+DES</p>
+
+              <h2 class="title">
+                <a href="blog-details.html">Se firma convenio en pro de la economía familiar</a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <!-- <img src="assets/img/blog/blog-author-2.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
+                <div class="post-meta">
+                  <p class="post-author">Comunicación Social</p>
+                  <p class="post-date">
+                    <time datetime="2024-03-19">Mar 19, 2024</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+
+          <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <article>
+
+              <div class="post-img">
+                <img src="assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
+              </div>
+
+              <p class="post-category">Entretenimiento</p>
+
+              <h2 class="title">
+                <a href="blog-details.html">Nuevas promociones en CINEMEX para PCD's</a>
+              </h2>
+
+              <div class="d-flex align-items-center">
+                <!-- <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0"> -->
+                <div class="post-meta">
+                  <p class="post-author">-DIS+DES</p>
+                  <p class="post-date">
+                    <time datetime="2024-04-01">Abr 01, 2024</time>
+                  </p>
+                </div>
+              </div>
+
+            </article>
+          </div><!-- End post list item -->
+
+        </div><!-- End recent posts list -->
+
+      </div>
+
+    </section><!-- End Recent-posts Section -->
+
+    <!-- Contact Section - Home Page -->
+    <section id="contact" class="contact">
+
+      <!--  Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contacto</h2>
+        <p>Tienes algún comentario, duda o sugerencia, ponte en contacto con nosotros:</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-6">
+
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="info-item" data-aos="fade" data-aos-delay="200">
+                  <lord-icon
+                    src="https://cdn.lordicon.com/surcxhka.json"
+                    trigger="hover"
+                    state="hover-jump-roll"
+                    colors="primary:#255faa,secondary:#8ac64b"
+                    style="width:60px;height:60px">
+                  </lord-icon>
+                  <h3 class="mt-1">Dirección</h3>
+                  <p>Circuito Cerro del Gato S/N</p>
+                  <p>Edificio K, 2do Piso</p>
+                  <p>Ciudad Administrativa, C.P. 98160</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="col-md-6">
+                <div class="info-item" data-aos="fade" data-aos-delay="300">
+                  <lord-icon
+                    src="https://cdn.lordicon.com/rsvfayfn.json"
+                    trigger="hover"
+                    colors="primary:#255faa"
+                    style="width:55px;height:55px">
+                  </lord-icon>
+                  <h3 class="mt-1">Llámanos</h3>
+                  <p>492 492 5000</p>
+                  <p>492 492 5088 y 5089</p>
+                  <p>Extensiones 46100 y 46103</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="col-md-6">
+                <div class="info-item" data-aos="fade" data-aos-delay="400">
+                  <lord-icon
+                    src="https://cdn.lordicon.com/ebjjjrhp.json"
+                    trigger="hover"
+                    colors="primary:#255faa,secondary:#8ac64b"
+                    style="width:60px;height:60px">
+                  </lord-icon>
+                  <h3>Email</h3>
+                  <p>inclusion@zacatecas.gob.mx</p>
+                  <p>contacto.disdes@zacatecas.gob.mx</p>
+                </div>
+              </div><!-- End Info Item -->
+
+              <div class="col-md-6">
+                <div class="info-item" data-aos="fade" data-aos-delay="500">
+                  <lord-icon
+                    src="https://cdn.lordicon.com/qvyppzqz.json"
+                    trigger="hover"
+                    colors="primary:#255faa,secondary:#8ac64b"
+                    style="width:60px;height:60px">
+                  </lord-icon>
+                  <h3>Horario</h3>
+                  <p>Lunes - Viernes</p>
+                  <p>8:30AM - 03:30PM</p>
+                </div>
+              </div><!-- End Info Item -->
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-6">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4 mt-2">
+
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Nombre" required>
+                </div>
+
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Email" required>
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Título" required>
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Mensaje" required></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Cargando</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Tu mensaje ha sido enviado. Gracias!</div>
+
+                  <button type="submit">Enviar Mensaje</button>
+                </div>
+
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+
+        </div>
+
+      </div>
+
+    </section><!-- End Contact Section -->
+
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-7 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span>-DIS +DES</span>
+          </a>
+          <p>Instituto para la Atención e Inclusión de las Personas con Discapacidad del Estado de Zacatecas</p>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-youtube"></i></a>
+            <!-- <a href=""><i class="bi bi-linkedin"></i></a> -->
+          </div>
+        </div>
+
+        <div class="col-lg-5 col-md-12 footer-contact text-center text-md-start">
+          <h4>Contáctanos:</h4>
+          <p>Circuito Cerro del Gato S/N, Edificio K, 2do. Nivel</p>
+          <p>Ciudad Administrativa, C.P. 98160</p>
+          <p>Zacatecas, Zac., México</p>
+          <p class="mt-4"><strong>Teléfonos:</strong> <span>+52 492 491 5000, 5088 y 5089 Ext. 46100 y 46103</span></p>
+          <p><strong>Email:</strong> <span>info-disdes@zacatecas.gob.mx</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>&copy; <span>Copyright</span> <strong class="px-1">-DIS+DES</strong> <span>Todos los derechos reservados</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Diseñado por <a href="">Local IT's</a>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+
+  <!-- Scroll Top Button -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- código camara -->
-<!-- <script type="text/javascript">
-              
-  function abrirCamaraCanje(){
-
-  let scanner = new Instascan.Scanner({video:document.getElementById('preview') });
-  scanner.addListener('scan', function (content) {
-    console.log(content);
-  });
-  Instascan.Camera.getCameras().then(function(cameras) {
-    if (cameras.length > 0) {
-      scanner.start(cameras[0]);
-// code front-back camera https://www.youtube.com/watch?v=7gyDSun7pCw&ab_channel=LearnCodeWeb
-      $('[name="cameraCanje"]').on('change',function(){
-        if($(this).val()==1){
-          if(cameras[0]!=""){
-            scanner.start(cameras[0]);
-          }
-          else{
-            alert('No hay camaras');
-          }
-          }
-          else if($(this).val()==2){
-          if(cameras[1]!=""){
-            scanner.start(cameras[1]);
-          }
-          else{
-            alert('No hay camaras');
-          }
-        }
-        
-
-      });
-      
-// code front-back camera
-
-    } else {
-      // console.error('No cameras found.');
-      alert("No se encontró cámara");
-    }
-  }).catch(function (e){
-    console.error(e);
-  }); 
-
-  scanner.addListener('scan',function(c){
-    document.getElementById('textQRCanje').value=c;
-    document.getElementById("myAudio").play();
-    scanner.stop();
-    });
-
-    $('#canjear').on('hide.bs.modal', function () { 
-      scanner.stop();
-    });
-
-}
-
-</script>
- -->
-<!-- Una vez cargado el QR se muestra el estatus -->
-<!-- código camara -->

@@ -234,9 +234,20 @@ function fotosAsociados(){
     $.ajax({
         type:"POST",
         url:"query/query_fotos_empresas.php",
-        dataType: "html",
+        dataType: "json",
         success: function(data){
-            $('#galery2').fadeIn(1000).html(data)
+            var jsonData = JSON.parse(JSON.stringify(data));
+            var success = jsonData.success;
+            if(success == 1){
+                document.getElementById('l1').setAttribute('src',"assets/logotipos/"+jsonData.logo1);
+                document.getElementById('l1div').removeAttribute('class');
+                document.getElementById('l1div').setAttribute('class',"col-lg-4 col-md-6 portfolio-item isotope-item filter-"+jsonData.logo1);
+                document.getElementById('l3').setAttribute('src',"assets/logotipos/"+jsonData.logo3);
+                document.getElementById('l2').setAttribute('src',"assets/logotipos/"+jsonData.logo2);
+            }
+            else{
+                alert("No se editó la empresa");
+            }
         }
         
     });

@@ -1,307 +1,217 @@
-//   abrir la cámara
-function abrirCamara(){
-  
-  document.getElementById("imagenLogo").hidden = true;  
-  document.getElementById("preview").hidden = false;  
-  let scanner = new Instascan.Scanner({video:document.getElementById('preview') });
-  scanner.addListener('scan', function (content) {
-    console.log(content);
-  });
-  Instascan.Camera.getCameras().then(function(cameras) {
-    if (cameras.length > 0) {
-      scanner.start(cameras[0]);
-      //inicia backcamera
-      $('[name="cameraCanje"]').on('change',function(){
-        if($(this).val()==1){
-          if(cameras[0]!=""){
-            scanner.start(cameras[0]);
-          }
-          else{
-            alert('No hay camaras');
-          }
-          }
-          else if($(this).val()==2){
-          if(cameras[1]!=""){
-            scanner.start(cameras[1]);
-          }
-          else{
-            alert('No hay camaras');
-          }
-        }
+// agregar empresa
+
+function agregarEmpresa(){
+    var nombre = document.getElementById("razonSocial").value;
+    var rfc = document.getElementById("rfc").value;
+    var pFisica = document.getElementById("pFisica");
+    var pMoral = document.getElementById("pMoral");
+    if(pFisica.checked){
+        var regimen = 1;
+    }
+    else if(pMoral.checked){
+        var regimen = 2;
+    }
+    var contacto = document.getElementById("contacto").value;
+    var celular = document.getElementById("celular").value;
+    var telefono = document.getElementById("telefono").value;
+    var email = document.getElementById("email").value;
+    var link = document.getElementById("link").value;
+    var calle = document.getElementById("calle").value;
+    var numExt = document.getElementById("numExt").value;
+    var numInt = document.getElementById("numInt").value;
+    var colonia = document.getElementById("colonia").value;
+    var cp = document.getElementById("cp").value;
+    var localidad = document.getElementById("localidad").value;
+    var municipio = document.getElementById("municipio").value;
+    var estado = document.getElementById("estado").value;
+    var descuento = document.getElementById("descuento").value;
+    var categoria = document.getElementById("categoria").value;
+    var userName = document.getElementById("userName").value;
+    var pdw = document.getElementById("pdw").value;
+    document.getElementById("progressBar").hidden = false;
+
+    if (nombre == "" || rfc == "" || regimen == "" || contacto == "" || celular == "" || telefono == "" || email == "" || categoria == "" || calle == "" || numExt == "" || numInt == "" || colonia == "" || cp == "" || localidad == "" || municipio == "" || estado == "" || descuento == "" || userName == "" || pdw == "") {
+
+        alert("Llena los campos faltantes");
         
-      });
+    } else {
 
-      // code front-back camera
-      } else {
-        alert("No se encontró cámara");
-      }
-    }).catch(function (e){
-      console.error(e);
-    }); 
-
-    scanner.addListener('scan',function(c){ //lee code
-      document.getElementById('textQR').value=c; //valor del QR
-      document.getElementById("myAudio").play(); //ejecuta audio
-      $.ajax({
+    $.ajax({
         type:"POST",
-        url:"prcd/checkDB.php",
+        url:"prcd/proceso_alta_empresa.php",
         data:{
-          c:c
+            nombre:nombre,
+            rfc:rfc,
+            regimen:regimen,
+            contacto:contacto,
+            celular:celular,
+            telefono:telefono,
+            email:email,
+            link:link,
+            categoria:categoria,
+            calle:calle,
+            numExt:numExt,
+            numInt:numInt,
+            colonia:colonia,
+            cp:cp,
+            localidad:localidad,
+            municipio:municipio,
+            estado:estado,
+            descuento:descuento,
+            userName:userName,
+            pdw:pdw
         },
         dataType: "json",
-        async:true,
-        cache: false,
-        success: function(response)
-        {
-            document.getElementById('pruebaInner').innerHTML = "";
-              var jsonData = JSON.parse(JSON.stringify(response));
-              scanner.stop();
-              document.getElementById("imagenLogo").hidden = false; 
-              document.getElementById("preview").hidden = true;
-              document.getElementById("textQR").value = "";
-              // user is logged in successfully in the back-end
-              // let's redirect
-              if (jsonData.success == "0")
-              {
-                let timerInterval
-                
+        success: function(data){
+            var jsonData = JSON.parse(JSON.stringify(data));
+            var success = jsonData.success;
+            
+            if (success == 1) {
                 Swal.fire({
-                  icon: 'warning',
-                  title: 'Credencial NO Válida',
-                  html: 'No se encontró el registro',
-                  footer: '-DIS +DES | 2024',
-                  timer: 3500,
-                  timerProgressBar: true,
-                  didOpen: () => {
-                    Swal.showLoading()
-                    const b = Swal.getHtmlContainer().querySelector('b')
-                    timerInterval = setInterval(() => {
-                      b.textContent = Swal.getTimerLeft()
-                    }, 100)
-                  },
-                  willClose: () => {
-                    clearInterval(timerInterval)
-                  }
-                  
-                }).then((result) => {
-                  /* Read more about handling dismissals below */
-                  if (result.dismiss === Swal.DismissReason.timer) {
-                    console.log('Cerrara el contador de tiempo')
-                  }
-                })
-              }
-              else if (jsonData.success == "1")
-              {
-                var jsonData = JSON.parse(JSON.stringify(response));
-                var datos = jsonData.datos;
-                document.getElementById('textQR').value="";
-                
-                $.each(datos, function(key,val){
-                  /* console.log('Nombre '+key+' placa '+val.vehiculo.no_placa+' '+val.vehiculo.vehiculo_modelo);
-                  document.getElementById('pruebaInner').innerHTML += val.vehiculo.vehiculo_modelo+' - '+val.vehiculo.no_placa+' <br>'; */
-                });
-                
-              
-                let timerInterval
-                var texto = document.getElementById('pruebaInner').innerHTML;
-                Swal.fire({
-                    
                     icon: 'success',
-                    title: 'Vigente',
-                    html: '<b>Credencial vigente</b><br><font size="+3">Expediente: '+jsonData.numExpediente+'</font><br><br><b>Vigente hasta:'+jsonData.fechaFinal+'<br>Personas Autorizadas:<br></br><span id="listado">'+texto+'</span>',
-                    footer: '-DIS +DES | 2024',
-                    timer: 30000,
-                  timerProgressBar: true,
-                  didOpen: () => {
-                    Swal.showLoading()
-                    const b = Swal.getHtmlContainer().querySelector('b')
-                    timerInterval = setInterval(() => {
-                      b.textContent = Swal.getTimerLeft()
-                    }, 100)
-                  },
-                  willClose: () => {
-                    clearInterval(timerInterval)
-                    document.getElementById('pruebaInner').innerHTML = "";
-                    document.getElementById('listado').innerHTML = "";
-                  }
-                }).then((result) => {
-                  /* Read more about handling dismissals below */
-                  if (result.dismiss === Swal.DismissReason.timer) {
-                    document.getElementById('pruebaInner').innerHTML = "";
-                    document.getElementById('listado').innerHTML = "";
-                    console.log('Cerrara el contador de tiempo')
-                  }
+                    title: 'Empresa agregada',
+                    text: 'Proceso exitoso',
+                    confirmButtonColor: "#0d6efd",
+                    footer: 'INCLUSIÓN'
                 });
-              }
-              
-        }           
-        });
+                //colaboradoresDashboard();
+                $('#agregarUser').modal('hide'); 
 
-      });
-
-      $('#botonCerrar').click(function () { 
-        scanner.stop();
-        document.getElementById("imagenLogo").hidden = false; 
-        document.getElementById("preview").hidden = true; 
-      });
-
-  }
-
-  function checkIn(){
-    alert('Realizó check-in');
-  }
-
-
-
-
-function abrirCamara2(){
-  
-  document.getElementById("imagenLogo").hidden = true;  
-  document.getElementById("preview").hidden = false;  
-  
-  
-  
-  let scanner = new Instascan.Scanner({video:document.getElementById('preview2') });
-  scanner.addListener('scan', function (content) {
-    console.log(content);
-  });
-
-
-  Instascan.Camera.getCameras().then(function(cameras) {
-    if (cameras.length > 0) {
-      scanner.start(cameras[0]);
-      //inicia backcamera
-      $('[name="cameraCanje"]').on('change',function(){
-        if($(this).val()==1){
-          if(cameras[0]!=""){
-            scanner.start(cameras[0]);
-          }
-          else{
-            alert('No hay camaras');
-          }
-          }
-          else if($(this).val()==2){
-          if(cameras[1]!=""){
-            scanner.start(cameras[1]);
-          }
-          else{
-            alert('No hay camaras');
-          }
+            } else if (success == 0){
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Usuario no agregado',
+                    text: 'Proceso no exitoso',
+                    footer: 'INCLUSIÓN'
+                });
+            }
         }
-        
-      });
-
-      // code front-back camera
-      } else {
-        alert("No se encontró cámara");
-      }
-    }).catch(function (e){
-      console.error(e);
-    }); 
-
-    scanner.addListener('scan',function(c){ //lee code
-      document.getElementById('textQR').value=c; //valor del QR
-      document.getElementById("myAudio").play(); //ejecuta audio
-      $.ajax({
-        type:"POST",
-        url:"prcd/checkDB.php",
-        data:{
-          c:c
-        },
-        dataType: "json",
-        async:true,
-        cache: false,
-        success: function(response)
-        {
-            document.getElementById('pruebaInner').innerHTML = "";
-              var jsonData = JSON.parse(JSON.stringify(response));
-              scanner.stop();
-              document.getElementById("imagenLogo").hidden = false; 
-              document.getElementById("preview").hidden = true;
-              document.getElementById("textQR").value = "";
-              // user is logged in successfully in the back-end
-              // let's redirect
-              if (jsonData.success == "0")
-              {
-                let timerInterval
-                
-                Swal.fire({
-                  icon: 'warning',
-                  title: 'Tarjetón NO Válido',
-                  html: 'No se encontró el registro',
-                  timer: 3500,
-                  timerProgressBar: true,
-                  didOpen: () => {
-                    Swal.showLoading()
-                    const b = Swal.getHtmlContainer().querySelector('b')
-                    timerInterval = setInterval(() => {
-                      b.textContent = Swal.getTimerLeft()
-                    }, 100)
-                  },
-                  willClose: () => {
-                    clearInterval(timerInterval)
-                  }
-                  
-                }).then((result) => {
-                  /* Read more about handling dismissals below */
-                  if (result.dismiss === Swal.DismissReason.timer) {
-                    console.log('Cerrara el contador de tiempo')
-                  }
-                })
-              }
-              else if (jsonData.success == "1")
-              {
-                var jsonData = JSON.parse(JSON.stringify(response));
-                var datos = jsonData.datos;
-                document.getElementById('textQR').value="";
-                
-                $.each(datos, function(key,val){
-                  console.log('Vehiculo '+key+' placa '+val.vehiculo.no_placa+' '+val.vehiculo.vehiculo_modelo);
-                  document.getElementById('pruebaInner').innerHTML += val.vehiculo.vehiculo_modelo+' - '+val.vehiculo.no_placa+' <br>';
-                });
-                
-              
-                let timerInterval
-                var texto = document.getElementById('pruebaInner').innerHTML;
-                Swal.fire({
-                    
-                    icon: 'success',
-                    title: 'Vigente',
-                    html: '<b>Tarjetón vigente</b><br><font size="+3">Expediente: '+jsonData.numExpediente+'</font><br><br><b>Vigente hasta:'+jsonData.fechaFinal+'<br>Vehiculos Registrados:<br></br><span id="listado">'+texto+'</span>',
-                    footer: 'SUIDEV | 2023',
-                    timer: 30000,
-                  timerProgressBar: true,
-                  didOpen: () => {
-                    Swal.showLoading()
-                    const b = Swal.getHtmlContainer().querySelector('b')
-                    timerInterval = setInterval(() => {
-                      b.textContent = Swal.getTimerLeft()
-                    }, 100)
-                  },
-                  willClose: () => {
-                    clearInterval(timerInterval)
-                    document.getElementById('pruebaInner').innerHTML = "";
-                    document.getElementById('listado').innerHTML = "";
-                  }
-                }).then((result) => {
-                  /* Read more about handling dismissals below */
-                  if (result.dismiss === Swal.DismissReason.timer) {
-                    document.getElementById('pruebaInner').innerHTML = "";
-                    document.getElementById('listado').innerHTML = "";
-                    console.log('Cerrara el contador de tiempo')
-                  }
-                });
-              }
-              
-        }           
         });
-
-      });
-
-      $('#botonCerrar2').click(function () { 
-        scanner.stop();
-        document.getElementById("imagenLogo").hidden = false; 
-        document.getElementById("preview").hidden = true; 
-      });
-
+    }
   }
+
+  // cambiar password
+  function cambiarPassword(){
+    document.getElementById('pdw').setAttribute('type','text');
+    document.getElementById('btnPwd').setAttribute('class','bi bi-eye-slash-fill');
+    document.getElementById('btnVer').setAttribute('onclick','ocultarPassword()');
+  }
+  function ocultarPassword(){
+    document.getElementById('pdw').setAttribute('type','password');
+    document.getElementById('btnPwd').setAttribute('class','bi bi-eye-fill');
+    document.getElementById('btnVer').setAttribute('onclick','cambiarPassword()');
+  }
+
+  function _(el) {
+    return document.getElementById(el);
+}
+
+function foto() {
+    var idUsr = document.getElementById('rfc').value;
+    var file = _("file").files[0];
+    //var documento = doc;
+    var idUsuario = idUsr;
+    var formdata = new FormData();
+    // variable del name file
+    formdata.append("file", file);
+    // variables post
+    // formdata.append("documento", documento);
+    formdata.append("idUsuario", idUsuario);
+    var ajax = new XMLHttpRequest();
+    ajax.upload.addEventListener("progress", progressHandler, false);
+    ajax.addEventListener("load", completeHandler, false);
+    ajax.addEventListener("error", errorHandler, false);
+    ajax.addEventListener("abort", abortHandler, false);
+    ajax.open("POST", "prcd/upload_photo.php"); 
+    
+    ajax.send(formdata);
+    
+    function progressHandler(event) {
+
+        _("loaded_n_total").innerHTML = "Cargado " + event.loaded + " bytes de " + event.total;
+        var percent = (event.loaded / event.total) * 100;
+        _("progressBar").value = Math.round(percent);
+        _("status").innerHTML = Math.round(percent) + "% subido... espere un momento";
+        //document.getElementById('flagFoto').value = 1;
+    }
+    
+    function completeHandler(event) {
+        _("status").innerHTML = event.target.responseText;
+        _("progressBar").value = 100; //wil clear progress bar after successful upload
+        _("file").style.display='none';
+        _("progressBar").style.display='none';
+        // document.getElementById('registroDoc'+doc).disabled = true;
+        // document.getElementById('registroDoc'+doc).setAttribute('style','color: #59c965');
+        // document.getElementById('profile').setAttribute('src','assets/docs_expedientes/photos/photosarchivo_'+idUsr+'.*');
+        // document.getElementById('btnModal'+doc).disabled = true;
+        // $(".bloqueo"+doc).attr("disabled", true);
+        //buscarPhoto(idUsr);
+    }
+    
+    function errorHandler(event) {
+        _("status").innerHTML = "Fallo en la subida";
+    }
+    
+    function abortHandler(event) {
+        _("status").innerHTML = "Fallo en la subida";
+    }
+}
+
+function fotoUpload() {
+    var idUsr = document.getElementById('curp_exp').value;
+    var file = _("file").files[0];
+    var idUsuario = idUsr;
+    var formdata = new FormData();
+    // variable del name file
+    formdata.append("file", file);
+    // variables post
+    // formdata.append("documento", documento);
+    formdata.append("idUsuario", idUsuario);
+    var ajax = new XMLHttpRequest();
+    ajax.upload.addEventListener("progress", progressHandler, false);
+    ajax.addEventListener("load", completeHandler, false);
+    ajax.addEventListener("error", errorHandler, false);
+    ajax.addEventListener("abort", abortHandler, false);
+    ajax.open("POST", "prcd/upload_photo.php"); 
+    
+    ajax.send(formdata);
+    
+    function progressHandler(event) {
+
+        _("loaded_n_total").innerHTML = "Cargado " + event.loaded + " bytes de " + event.total;
+        var percent = (event.loaded / event.total) * 100;
+        _("progressBar").value = Math.round(percent);
+        _("status").innerHTML = Math.round(percent) + "% subido... espere un momento";
+        //document.getElementById('flagFoto').value = 3;
+    }
+    
+    function completeHandler(event) {
+        _("status").innerHTML = event.target.responseText;
+        _("progressBar").value = 100; //wil clear progress bar after successful upload
+        _("file").style.display='none';
+        _("progressBar").style.display='none';
+        // document.getElementById('registroDoc'+doc).disabled = true;
+        // document.getElementById('registroDoc'+doc).setAttribute('style','color: #59c965');
+        // document.getElementById('profile').setAttribute('src','assets/docs_expedientes/photos/photosarchivo_'+idUsr+'.*');
+        // document.getElementById('btnModal'+doc).disabled = true;
+        // $(".bloqueo"+doc).attr("disabled", true);
+        
+    }
+    
+    function errorHandler(event) {
+        _("status").innerHTML = "Fallo en la subida";
+    }
+    
+    function abortHandler(event) {
+        _("status").innerHTML = "Fallo en la subida";
+    }
+}
+
+var loadFile = function(event) {
+    var output = document.getElementById('profile');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+};
+

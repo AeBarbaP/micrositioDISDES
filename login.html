@@ -1,118 +1,214 @@
-<!doctype html>
-<html lang="en">
-  <head>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.101.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
-    <title>Sistema Único de Identificación y Verificación- INCLUSIÓN</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sign-in/">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/4d63b5ef28.js" crossorigin="anonymous"></script>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Empresas | -DIS +DES</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/lazaritoICO.ico" rel="icon">
+    <link href="assets/img/lazaritoICO.ico" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
+    <script src="query.js"></script>
+    <script src="acceso.js"></script>
 
-    
+<!-- =======================================================
+  * Template Name: Append
+  * Updated: Mar 13 2024 with Bootstrap v5.3.3
+  * Template URL: https://bootstrapmade.com/append-bootstrap-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+======================================================== -->
+</head>
 
-<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-circle-fill" viewBox="0 0 16 16">
+  <symbol id="link2" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+</symbol>
+</svg>
 
-    <style>
-      body {
-          font-family: 'Quicksand', sans-serif;
-      }
+<body class="blog-details-page" data-bs-spy="scroll" data-bs-target="#navmenu">
 
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+<!-- ======= Header ======= -->
+<header id="header" class="header sticky-top d-flex align-items-center">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
+    <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <img src="assets/img/logo.png" alt="">
+        <h1 class="ms-4">-DIS +DES</h1>
+        <span>.</span>
+    </a>
 
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
+    <!-- Nav Menu -->
+    <nav id="navmenu" class="navmenu">
+        <ul>
+            <li><a href="index.html#hero" class="active">INICIO</a></li>
+            <li><a href="index.html#about">ACERCA DE</a></li>
+            <li><a href="index.html#services">BASES</a></li>
+            <li><a href="index.html#portfolio">ASOCIADOS</a></li>
+            <li><a href="index.html#team">TÉRMINOS Y CONDICIONES</a></li>
+            <li><a href="blog.html">BLOG</a></li>
+           
+        <li><a href="index.html#contact">CONTACTO</a></li>
+        </ul>
 
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+    </nav><!-- End Nav Menu -->
 
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
+    <a class="btn-getstarted" href="index.html#about">Get Started</a>
 
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
+</div>
+</header><!-- End Header -->
 
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      }
-    </style>
+<main id="main">
 
-    
-    <!-- Custom styles for this template -->
-    <link href="signin.css" rel="stylesheet">
-  </head>
-  <body class="text-center" style="background-image: url(img/4850037.jpg); background-repeat: no-repeat;background-attachment: fixed; background-size: cover;">
-    
-<main class="form-signin w-100 m-auto">
-  <form action="prcd/acceso.php" method="post">
-    <img class="mb-4" src="img/Logo Gobierno-Inclusión VColorPNG.png" alt="" width="90%" height="auto">
-    <h1><strong>SUIDEV</strong></h1>
-    <p>Sistema Único de Identificación y Verificación</p>
-    <hr>
-    <h5 class="h3 mt-5 mb-4 fw-normal">Ingresar</h5>
-    <label for="inputEmail" class="sr-only">Usuario</label>
-    <input type="text" id="inputEmail" class="form-control" placeholder="Usuario" name="usr" required autofocus>
-    <label for="inputPassword" class="sr-only">Contraseña</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" name="pwd" required>
+    <!-- Blog Details Page Title & Breadcrumbs -->
+    <div data-aos="fade" class="page-title" style="background-image: url(assets/img/admin_sistema.jpg); background-position: bottom;" id="fondoEmpresas">
+        <div class="heading">
+        <div class="container">
+            <div class="row d-flex justify-content-center text-center" >
+                <div class="col-lg-8 rounded-1 border p-2" style="background-color: rgba(255, 255, 255, 0.7);">
+                    <h1>Acceso</h1>
+                    <p class="mb-0">Ingresa al sistema  -DIS +DES.</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="breadcrumbs">
+        <div class="container">
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li class="current">Acceso</li>
+            </ol>
+        </div>
+    </nav>
+    </div><!-- End Page Title -->
 
-<!--     <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Recordarme
-      </label>
-    </div> -->
-    <button class="btn btn-lg btn-primary btn-block mb-3 mt-2" name="Submit" type="submit"><i class="fas fa-user-lock"></i> Acceder</button>
-    <hr>
-    <a href="index.html" class="btn btn-lg btn-secondary btn-block mt-3 mb-3" name="back" type="button"><i class="bi bi-chevron-double-left"></i> Regresar</a>
-    <br>
-    <p class="mt-5 mb-3 text-muted">&copy; 2022 | INCLUSIÓN</p>
-  </form>
-</main>
+    <!-- Blog-details Section - Blog Details Page -->
+    <section id="blog-details" class="blog-details">
 
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-    
-  </body>
+            <div class="row g-5">
+
+          <div class="col-lg-4">
+            <article class="article">
+              <div class="content">
+                <div class="row">
+                    <h5 class="mt-2 mb-4"><strong>Ingresa las credenciales de acceso</strong></h5>
+                    <div class="container-fluid">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill-lock"></i></span>
+                            <input type="text" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" id="user">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="bi bi-passport-fill"></i></span>
+                            <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" id="pwd">
+                        </div>
+                        <button class="btn btn-primary" onclick="login()">Acceso</button>                         
+                    </div>
+                </div><!-- row -->
+              </div><!-- content -->
+            </article><!-- End post article -->
+          </div>
+          <div class="col-8 text-center">
+            <img src="assets/img/lazaritoDIV.png" width="300">
+          </div>
+        </div>
+      </div>
+    </section><!-- End Blog-details Section -->
+
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-7 col-md-12 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center">
+                <span>-DIS +DES</span>
+              </a>
+              <p>Instituto para la Atención e Inclusión de las Personas con Discapacidad del Estado de Zacatecas</p>
+              <div class="social-links d-flex mt-4">
+                <a href=""><i class="bi bi-twitter"></i></a>
+                <a href=""><i class="bi bi-facebook"></i></a>
+                <a href=""><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-5 col-md-12 footer-contact text-center text-md-start">
+            <h4>Contáctanos:</h4>
+          <p>Circuito Cerro del Gato S/N, Edificio K, 2do. Nivel</p>
+          <p>Ciudad Administrativa, C.P. 98160</p>
+          <p>Zacatecas, Zac., México</p>
+          <p class="mt-4"><strong>Teléfono:</strong> <span>+52 492 491 5000, 5088 y 5089 Ext. 46100 y 46103</span></p>
+          <p><strong>Email:</strong> <span>info-disdes@zacatecas.gob.mx</span></p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+        <p>&copy; <span>Copyright</span> <strong class="px-1">-DIS+DES</strong> <span>Todos los derechos reservados</span></p>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you've purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+          Designed by <a href="">Local IT's</a>
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+
+  <!-- Scroll Top Button -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
