@@ -9,13 +9,14 @@ $fecha_sistema = strftime("%Y-%m-%d,%H:%M:%S");
 
 $c = $_POST['c'];
 
-$SQL = "SELECT * FROM tarjetones WHERE curp= '$c'";
+/* $SQL = "SELECT * FROM tarjetones WHERE curp= '$c'";
 $resultadoSQL = $conn->query($SQL);
-$filas = $resultadoSQL->num_rows;
+$filas = $resultadoSQL->num_rows; */
 
 $sql2 = "SELECT * FROM Expedientes WHERE curp='$c'";
 $resultadosql2 = $conn2->query($sql2);
 $rowsql2 = $resultadosql2->fetch_assoc();
+$filas = $resultadosql2->num_rows;
 
 if ($filas == 0){
     echo json_encode(array(
@@ -24,16 +25,16 @@ if ($filas == 0){
 }
 else if ($filas > 0){
     $fechaO = date_create($fecha_sistema);
-    $row_SQL = $resultadoSQL->fetch_assoc();
-    $fechaInicio = $row_SQL['fecha_entrega'];
+    /* $row_SQL = $resultadoSQL->fetch_assoc(); */
+    /* $fechaInicio = $row_SQL['fecha_entrega'];
     $fechaCalculo = date_create($fechaInicio);
     $fechaFinal = date_add($fechaCalculo, date_interval_create_from_date_string("2 years"));
-    $fValido = date_format($fechaFinal,"d-m-Y");
+    $fValido = date_format($fechaFinal,"d-m-Y"); */
     $numExpediente = $rowsql2['folio'];
 
-    $intervalo = diasEntreFechas($fecha_sistema, $fechaInicio);
+    /* $intervalo = diasEntreFechas($fecha_sistema, $fechaInicio); */
     
-    $sqlVehiculos = "SELECT * FROM tarjetones WHERE curp='$c'";
+    /* $sqlVehiculos = "SELECT * FROM tarjetones WHERE curp='$c'";
     $resultado_sqlVehiculos = $conn->query($sqlVehiculos);
     $filasV = $resultado_sqlVehiculos->num_rows;
     
@@ -41,26 +42,26 @@ else if ($filas > 0){
         $datos[] = array(
             'vehiculo'=> $row_SQL2
         );
-    }
+    } */
     
 
-    if ($intervalo < 720){
+    if ($filas>0){
         $validacion = 1;
         
         echo json_encode(array(
             'success'=>1,
             'numExpediente'=>$numExpediente,
-            'fechaIncio'=>$fechaInicio,
+            /* 'fechaIncio'=>$fechaInicio,
             'fechaFinal'=>$fValido,
-            'datos'=>$datos
+            'datos'=>$datos */
         ));
     }
-    else if ($intervalo > 720){
+    else if ($filas == 0){
         $validacion = 0;
         echo json_encode(array(
             'success'=>2,
-            'fechaInicio'=>$fechaInicio,
-            'fechaFinal'=>$fechaFinal
+            /* 'fechaInicio'=>$fechaInicio,
+            'fechaFinal'=>$fechaFinal */
         ));
     }
 }

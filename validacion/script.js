@@ -105,10 +105,10 @@ function abrirCamara(){
                 let timerInterval
                 var texto = document.getElementById('pruebaInner').innerHTML;
                 Swal.fire({
-                    
+                    //regresar la variable jsonData.fechaFinal en Vigencia
                     icon: 'success',
                     title: 'Vigente',
-                    html: '<b>Credencial vigente</b><br><font size="+3">Expediente: '+jsonData.numExpediente+'</font><br><br><b>Vigente hasta:'+jsonData.fechaFinal+'<br>Personas Autorizadas:<br></br><span id="listado">'+texto+'</span>',
+                    html: '<b>Credencial vigente</b><br><font size="+3">Expediente: '+jsonData.numExpediente+'</font><br><br><b>Vigente hasta:'+''+'<br>Personas Autorizadas:<br></br><span id="listado">'+texto+'</span>',
                     footer: '-DIS +DES | 2024',
                     timer: 30000,
                   timerProgressBar: true,

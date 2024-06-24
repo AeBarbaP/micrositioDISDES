@@ -73,10 +73,13 @@ function agregarEmpresa(){
                     text: 'Proceso exitoso',
                     confirmButtonColor: "#0d6efd",
                     footer: 'INCLUSIÓN'
+                }).then((result) => {
+                    /* Read more about isConfirmed, isDenied below */
+                    if (result.isConfirmed) {
+                        window.location.href= "registro-empresa.html";
+                    }
                 });
-                //colaboradoresDashboard();
                 $('#agregarUser').modal('hide'); 
-
             } else if (success == 0){
                 Swal.fire({
                     icon: 'success',
@@ -215,3 +218,7 @@ var loadFile = function(event) {
     }
 };
 
+function ValidaSoloNumeros() {
+    if ((event.keyCode < 48) || (event.keyCode > 57)) 
+        event.returnValue = false;
+}
