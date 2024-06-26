@@ -127,21 +127,6 @@
             <div class="col-lg-8">
 
                 <article class="article">
-
-                <!-- <div class="post-img">
-                    <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
-                </div> -->
-
-                <!-- <h2 class="title">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</h2> -->
-
-              <!-- <div class="meta-top">
-                <ul>
-                  <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2020-01-01">Jan 1, 2022</time></a></li>
-                  <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
-                </ul>
-              </div> --><!-- End meta top -->
-
               <div class="content">
                 <div class="row">
                     <span class="text-center" id="logotipoPV">
@@ -154,13 +139,13 @@
                     <div class="col-lg-12">
                         <div class="mb-3">
                             <label for="razonSocial" class="form-label">Nombre ó Razón Social:</label>
-                            <input type="text" class="form-control" id="razonSocial">
+                            <input type="text" class="form-control" id="razonSocial" onkeyup="javascript:this.value=this.value.toUpperCase()">
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class=" mb-3">
                             <label for="rfc" class="form-label">RFC:</label>
-                            <input type="text" class="form-control" id="rfc" placeholder="RFC con Homoclave">
+                            <input type="text" class="form-control" id="rfc" placeholder="RFC con Homoclave" onkeyup="javascript:this.value=this.value.toUpperCase()">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -179,7 +164,7 @@
                     <div class="col-lg-12">
                         <div class="mb-3">
                             <label for="contacto" class="form-label">Nombre de Contacto o Representante Legal:</label>
-                            <input type="text" class="form-control" id="contacto">
+                            <input type="text" class="form-control" id="contacto" onkeyup="javascript:this.value=this.value.toUpperCase()">
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-6">
@@ -226,7 +211,7 @@
                     <div class="col-lg-6">
                         <div class=" mb-3">
                             <label for="calle" class="form-label">Calle:</label>
-                            <input type="text" class="form-control" id="calle">
+                            <input type="text" class="form-control" id="calle" onkeyup="javascript:this.value=this.value.toUpperCase()">
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
@@ -244,7 +229,7 @@
                     <div class="col-lg-7">
                         <div class=" mb-3">
                             <label for="colonia" class="form-label">Colonia:</label>
-                            <input type="text" class="form-control" id="colonia">
+                            <input type="text" class="form-control" id="colonia" onkeyup="javascript:this.value=this.value.toUpperCase()">
                         </div>
                     </div>
                     <div class="col-lg-3 col-sm-6">
@@ -256,40 +241,41 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class=" mb-3">
                             <label for="localidad" class="form-label">Localidad:</label>
-                            <input type="text" class="form-control" id="localidad">
+                            <input type="text" class="form-control" id="localidad" onkeyup="javascript:this.value=this.value.toUpperCase()">
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <div class=" mb-3">
                             <label for="municipio" class="form-label">Municipio:</label>
-                            <input type="text" class="form-control" id="municipio">
+                            <input type="text" class="form-control" id="municipio" onkeyup="javascript:this.value=this.value.toUpperCase()">
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-6">
                         <div class=" mb-3">
                             <label for="estado" class="form-label">Estado:</label>
-                            <input type="text" class="form-control" id="estado">
+                            <input type="text" class="form-control" id="estado" onkeyup="javascript:this.value=this.value.toUpperCase()">
                         </div>
                     </div>
                     <div class="col-lg-12 col-sm-12 mb-3">
                       <label for="">Días que aplicará el descuento:</label>
                     </div>
+                    <input type="text" class="form-control mb-2" id="concatenadoDias" hidden>
                     <div class="input-group">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" onclick="semana();semanaCheck()" value="" id="checkAllElectro">
+                      <div class="form-check ms-4 me-4">
+                        <input class="form-check-input" type="checkbox" onclick="semana();semanaCheck()" onchange="concatenadoDias()" id="semanaCheck">
                         <label class="form-check-label" for="checkElectro">
                           Seleccionar todo
                         </label>
                       </div>
                       <div class="form-check form-check-inline">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" onchange="semanaCheck()" id="Lunes">
+                          <input class="form-check-input" type="checkbox" onchange="semanaCheck();concatenadoDias()" id="Lunes"  value="Lunes">
                           <label class="form-check-label" for="Lunes">
                             Lunes
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" onchange="semanaCheck()" id="Martes">
+                          <input class="form-check-input" type="checkbox" onchange="semanaCheck();concatenadoDias()" id="Martes" value="Martes">
                           <label class="form-check-label" for="Martes">
                             Martes
                           </label>
@@ -297,13 +283,13 @@
                       </div>
                       <div class="form-check form-check-inline">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" onchange="semanaCheck()" id="Miercoles">
+                          <input class="form-check-input" type="checkbox" onchange="semanaCheck();concatenadoDias()" id="Miercoles" value="Miércoles">
                           <label class="form-check-label" for="Miercoles">
                             Miércoles
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" onchange="semanaCheck()" id="Jueves">
+                          <input class="form-check-input" type="checkbox" onchange="semanaCheck();concatenadoDias()" id="Jueves" value="Jueves">
                           <label class="form-check-label" for="Jueves">
                             Jueves
                           </label>
@@ -311,13 +297,13 @@
                       </div>
                       <div class="form-check form-check-inline">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" onchange="semanaCheck()" id="Viernes">
+                          <input class="form-check-input" type="checkbox" onchange="semanaCheck();concatenadoDias()" id="Viernes" value="Viernes">
                           <label class="form-check-label" for="Viernes">
                             Viernes
                           </label>
                         </div>
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" onchange="semanaCheck()" id="Sabado">
+                          <input class="form-check-input" type="checkbox" onchange="semanaCheck();concatenadoDias()" id="Sabado" value="Sábado">
                           <label class="form-check-label" for="Sabado">
                             Sábado
                           </label>
@@ -325,7 +311,7 @@
                       </div>
                       <div class="form-check form-check-inline">
                         <div class="form-check">
-                          <input class="form-check-input" type="checkbox" onchange="semanaCheck()" id="Domingo">
+                          <input class="form-check-input" type="checkbox" onchange="semanaCheck();concatenadoDias()" id="Domingo" value="Domingo">
                           <label class="form-check-label" for="Domingo">
                             Domingo
                           </label>
@@ -335,42 +321,41 @@
                     <div class="col-lg-12 col-sm-12 mb-3 mt-3">
                       <label for="">Tipo de descuento:</label>
                     </div>
-                    <div class="row ms-4">
-                      <div class="col-6 mt-3 ">
+                    <div class="row ms-4 mb-3">
+                      <div class="col-6 mt-3">
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="descuentoOp" value="option1">
+                          <input class="form-check-input" type="radio" name="exampleRadios" id="descuentoOp" onclick="habilitaInputs()">
                           <label class="form-check-label" for="descuentoOp">
                             % de Descuento
                           </label>
-                          <!-- <label for="descuento" class="form-label">% Descuento que aplicará:</label> -->
-                          <input type="number" class="form-control" id="descuento" onkeypress="ValidaSoloNumeros()">
+                          <input type="number" class="form-control mt-1" id="descuento" onkeypress="ValidaSoloNumeros()" disabled>
                         </div>
                         <div class="mb-3">
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="productoGratisOp" value="option1" checked>
+                          <input class="form-check-input" type="radio" name="exampleRadios" id="productoGratisOp" onclick="habilitaInputs()">
                           <label class="form-check-label" for="productoGratisOp">
                             Producto gratis
                           </label>
-                          <input type="text" name="" class="form-control" id="productoGratis" placeholder="Especifica...">
+                          <input type="text" name="" class="form-control mt-1" id="productoGratis" placeholder="Especifica..." onkeyup="javascript:this.value=this.value.toUpperCase()" disabled>
                         </div>
                       </div>
                       <div class="col-6 mt-3">
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="promoDiaOp" value="option2">
+                          <input class="form-check-input" type="radio" name="exampleRadios" id="promoDiaOp" onclick="habilitaInputs()">
                           <label class="form-check-label" for="promoDiaOp">
-                            Promoción por día
+                            Promoción
                           </label>
-                          <input type="text" class="form-control" name="" id="promoDia" placeholder="Especifica...">
+                          <input type="text" class="form-control mt-1" name="" id="promoDia" placeholder="Especifica..." onkeyup="javascript:this.value=this.value.toUpperCase()" disabled>
                         </div>
                         <div class="mb-3">
                         </div>
                         <div class="form-check form-check-inline">
-                          <input class="form-check-input" type="radio" name="exampleRadios" id="promoOtra" value="option3">
-                          <label class="form-check-label" for="promoOtra">
+                          <input class="form-check-input" type="radio" name="exampleRadios" id="promoOtraOp" onclick="habilitaInputs()">
+                          <label class="form-check-label" for="promoOtraOp">
                             Otro:
                           </label>
-                          <input type="text" class="form-control" name="" id="promoOtra" placeholder="Especifica...">
+                          <input type="text" class="form-control mt-1" name="" id="promoOtra" placeholder="Especifica..." onkeyup="javascript:this.value=this.value.toUpperCase()" disabled>
                         </div>
                       </div>
                     </div>
@@ -404,23 +389,8 @@
                     
                     
                 </div>
-                
 
               </div><!-- End post content -->
-
-              <!-- <div class="meta-bottom">
-                <i class="bi bi-folder"></i>
-                <ul class="cats">
-                  <li><a href="#">Business</a></li>
-                </ul>
-
-                <i class="bi bi-tags"></i>
-                <ul class="tags">
-                  <li><a href="#">Creative</a></li>
-                  <li><a href="#">Tips</a></li>
-                  <li><a href="#">Marketing</a></li>
-                </ul>
-              </div> --><!-- End meta bottom -->
 
             </article><!-- End post article -->
 
@@ -495,32 +465,7 @@
                   </div>
                 </div><!-- End recent post item-->
 
-                <!-- <div class="post-item">
-                  <img src="assets/img/blog/blog-recent-5.jpg" alt="" class="flex-shrink-0">
-                  <div>
-                    <h4><a href="blog-details.html">Et dolores corrupti quae illo quod dolor</a></h4>
-                    <time datetime="2020-01-01">Jan 1, 2020</time>
-                  </div>
-                </div> --><!-- End recent post item-->
-
               </div><!-- End sidebar recent posts-->
-
-              <!-- <div class="sidebar-item tags">
-                <h3 class="sidebar-title">Tags</h3>
-                <ul class="mt-3">
-                  <li><a href="#">App</a></li>
-                  <li><a href="#">IT</a></li>
-                  <li><a href="#">Business</a></li>
-                  <li><a href="#">Mac</a></li>
-                  <li><a href="#">Design</a></li>
-                  <li><a href="#">Office</a></li>
-                  <li><a href="#">Creative</a></li>
-                  <li><a href="#">Studio</a></li>
-                  <li><a href="#">Smart</a></li>
-                  <li><a href="#">Tips</a></li>
-                  <li><a href="#">Marketing</a></li>
-                </ul>
-              </div> --><!-- End sidebar tags-->
 
             </div><!-- End Sidebar -->
 
@@ -566,10 +511,6 @@
     <div class="container copyright text-center mt-4">
         <p>&copy; <span>Copyright</span> <strong class="px-1">-DIS+DES</strong> <span>Todos los derechos reservados</span></p>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
           Diseñado por <a href="">Local IT's</a>
       </div>
     </div>

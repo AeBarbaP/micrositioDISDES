@@ -23,7 +23,9 @@ include('qc3.php');
     $localidad = $_POST['localidad'];
     $municipio = $_POST['municipio'];
     $estado = $_POST['estado'];
+    $dias = $_POST['dias'];
     $descuento = $_POST['descuento'];
+    $descuentoDescripcion = $_POST['descuentoDescripcion'];
     $userName = $_POST['userName'];
     $pdw = $_POST['pdw'];
 
@@ -45,7 +47,9 @@ include('qc3.php');
         localidad,
         municipio,
         estado,
-        descuento
+        dias_descuento,
+        descuento,
+        descuento_descripcion
         ) 
         VALUES(
             '$nombre',
@@ -65,7 +69,9 @@ include('qc3.php');
             '$localidad',
             '$municipio',
             '$estado',
-            '$descuento'
+            '$dias',
+            '$descuento',
+            '$descuentoDescripcion'
             )";
     $resultadosqlInsert = $conn3->query($sqlInsert);
 
