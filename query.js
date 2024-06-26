@@ -158,9 +158,34 @@ function edicionEmpresa(id){
     var municipio = document.getElementById('municipio').value; 
     var estado = document.getElementById('estado').value; 
     var zip_code = document.getElementById('zip_code').value; 
-    var descuento = document.getElementById('descuento').value;
+    var descuentoOp = document.getElementById("descuentoOp");
+    var productoGratisOp = document.getElementById("productoGratisOp");
+    var promoDiaOp = document.getElementById("promoDiaOp");
+    var promoOtraOp = document.getElementById("promoOtraOp");
+    var descuentoPorcentaje = document.getElementById("descuento").value;
+    var descuentoProducto = document.getElementById("productoGratis").value;
+    var descuentoPromocion = document.getElementById("promoDia").value;
+    var descuentoOtro = document.getElementById("promoOtra").value;
     var ubicacionMaps = document.getElementById('ubicacionMaps').value; 
     var link = document.getElementById('link').value;
+    var dias = document.getElementById("concatenadoDias").value;
+
+    if (descuentoOp.checked){
+        var descuento = 1;
+        var descuentoDescripcion = descuentoPorcentaje;
+    } else if (productoGratisOp.checked) {
+        var descuento = 2;
+        var descuentoDescripcion = descuentoProducto;
+    } else if (promoDiaOp.checked) {
+        var descuento = 3;
+        var descuentoDescripcion = descuentoPromocion;
+    } else if (promoOtraOp.checked) {
+        var descuento = 4;
+        var descuentoDescripcion = descuentoOtro;
+    } else {
+        var descuento = 0;
+        var descuentoDescripcion = "";
+    }
 
     $.ajax({
         type: "POST",
@@ -176,7 +201,9 @@ function edicionEmpresa(id){
             municipio:municipio,
             estado:estado,
             zip_code:zip_code,
+            dias:dias,
             descuento:descuento,
+            descuentoDescripcion:descuentoDescripcion,
             ubicacionMaps:ubicacionMaps,
             link:link
         },
